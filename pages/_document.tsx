@@ -8,7 +8,10 @@ export default class LionsterDocument extends Document {
     public render() {
         return (
             <Html>
-                <Head/>
+                <Head>
+                    <title>Lionster</title>
+                    <link rel="icon" href="/favicon.ico"/>
+                </Head>
                 <body>
                 <Main/>
                 <NextScript/>
