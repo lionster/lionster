@@ -1,0 +1,26 @@
+@import "config";
+
+.lion-panel {
+  display: flex;
+  flex-direction: column;
+  border: $border-width solid $border-color;
+  border-radius: $border-radius;
+  background-color: $white;
+}
+
+.lion-panel-header {
+  font-weight: bold;
+  font-size: $font-size-lg;
+  padding: $s3;
+  border-bottom: $border-width solid $border-color;
+}
+
+.lion-panel-content {
+  padding: $s3;
+}
+
+.lion-panel-bar {
+  border: $border-width solid $border-color;
+  border-radius: $border-radius;
+  background-color: $white;
+}

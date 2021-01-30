@@ -1,0 +1,10 @@
+@import "variables";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+$s1: map-get($spacers, 1);
+$s2: map-get($spacers, 2);
+$s3: map-get($spacers, 3);
+$s4: map-get($spacers, 4);
+$s5: map-get($spacers, 5);
