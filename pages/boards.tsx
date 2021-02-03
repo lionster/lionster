@@ -1,24 +1,21 @@
 import Head from 'next/head';
-import styles from './index.module.scss';
+import styles from './boards.module.scss';
 
-export default function Home() {
+export default function Boards() {
     return (
         <div className={styles.container}>
             <Head>
-                <title>Lionster</title>
+                <title>Boards | Lionster</title>
             </Head>
 
             <main className={styles.main}>
                 <h1 className={styles.title}>
-                    Lionster
+                    Publicly shared boards
                 </h1>
 
                 <p className={styles.description}>
-                    App goes here
-                    <a href="/boards">Boards</a>
+                    List of boards goes here
                 </p>
-
-
             </main>
         </div>
     );
