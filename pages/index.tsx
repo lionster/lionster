@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import styles from './index.module.scss';
 
 export default function Home() {
@@ -15,7 +16,7 @@ export default function Home() {
 
                 <p className={styles.description}>
                     App goes here
-                    <a href="/boards">Boards</a>
+                    <Link href="/boards">Boards</Link>
                 </p>
 
 
