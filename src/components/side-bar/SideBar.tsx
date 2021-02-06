@@ -1,4 +1,4 @@
-import Logo from 'components/logo';
+import {Logo} from 'components/logo';
 import {environment} from 'environment/environment';
 import {FunctionComponent} from 'react';
 

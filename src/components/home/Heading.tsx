@@ -1,12 +1,12 @@
-import Logo from 'components/logo';
+import {Logo} from 'components/logo';
 import {environment} from 'environment/environment';
 import {FunctionComponent} from 'react';
 
-export interface HomeHeading {
+export interface Heading {
     className?: string;
 }
 
-const HomeHeading: FunctionComponent<HomeHeading> = ({className}) => {
+export const HomeHeading: FunctionComponent<Heading> = ({className}) => {
     return (
         <div className={`flex ${className || ''}`}>
             <Logo size={256}/>
@@ -22,5 +22,3 @@ const HomeHeading: FunctionComponent<HomeHeading> = ({className}) => {
         </div>
     );
 };
-
-export default HomeHeading;

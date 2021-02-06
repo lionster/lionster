@@ -1,12 +1,20 @@
 import {FunctionComponent} from 'react';
 
-export interface HomeBannerProps {
+export interface Promo {
+    id: string;
+
     title: string;
 
     description: string;
 }
 
-const HomeBanner: FunctionComponent<HomeBannerProps> = ({title, description}) => {
+export interface PromoProps {
+    title: string;
+
+    description: string;
+}
+
+export const PromoCard: FunctionComponent<PromoProps> = ({title, description}) => {
     return (
         <div>
             <div>{title}</div>
@@ -14,5 +22,3 @@ const HomeBanner: FunctionComponent<HomeBannerProps> = ({title, description}) =>
         </div>
     );
 };
-
-export default HomeBanner;

@@ -6,7 +6,7 @@ export interface TopBarProps {
     className?: string;
 }
 
-const TopBar: FunctionComponent<TopBarProps> = ({className}) => {
+export const TopBar: FunctionComponent<TopBarProps> = ({className}) => {
     return (
         <div className={`flex p-4 ${className || ''}`}>
             <InputGroup>
@@ -27,5 +27,3 @@ const TopBar: FunctionComponent<TopBarProps> = ({className}) => {
         </div>
     );
 };
-
-export default TopBar;

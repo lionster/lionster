@@ -10,7 +10,7 @@ export interface LogoProps {
     fileSize?: number;
 }
 
-const Logo: FunctionComponent<LogoProps> = ({className, size, fileSize}) => {
+export const Logo: FunctionComponent<LogoProps> = ({className, size, fileSize}) => {
     return (
         <div className={`flex-grow-1 flex-shrink-0 ${className || ''}`}
              style={{width: `${size}px`, height: `${size}px`}}>
@@ -23,5 +23,3 @@ const Logo: FunctionComponent<LogoProps> = ({className, size, fileSize}) => {
         </div>
     );
 };
-
-export default Logo;

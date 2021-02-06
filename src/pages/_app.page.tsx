@@ -1,5 +1,5 @@
-import SideBar from 'components/side-bar';
-import TopBar from 'components/top-bar';
+import SideBar from 'components/side-bar/SideBar';
+import {TopBar} from 'components/top-bar';
 import {AppProps} from 'next/app';
 import {FunctionComponent} from 'react';
 import 'styles/app.scss';

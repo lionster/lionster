@@ -1,9 +1,8 @@
+import {HomeHeading, Promo, PromoCard} from 'components/home';
+import {environment} from 'environment/environment';
 import Head from 'next/head';
 import {FunctionComponent} from 'react';
-import {environment} from 'environment/environment';
-import banners from './banners.json';
-import HomeBanner from './components/HomeBanner';
-import HomeHeading from './components/HomeHeading';
+import promos from './promos.json';
 
 export interface HomePageProps {
 }
@@ -17,10 +16,10 @@ const HomePage: FunctionComponent<HomePageProps> = () => {
             <div className="max-w-screen-lg mx-auto px-4">
                 <HomeHeading className="mx-auto my-6 max-w-2xl"/>
                 {
-                    banners.map(({title, description}) =>
-                        <HomeBanner key={title}
-                                    title={title}
-                                    description={description}/>
+                    (promos as Array<Promo>).map(({id, title, description}) =>
+                        <PromoCard key={id}
+                                   title={title}
+                                   description={description}/>
                     )
                 }
             </div>
