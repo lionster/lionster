@@ -1,4 +1,4 @@
-import {LayoutComponent} from '../../../components/layouts/layouts.types';
+import {LayoutComponent} from '../../shared/layouts/layouts.types';
 import styles from './index.module.scss';
 
 export interface AboutPageProps {

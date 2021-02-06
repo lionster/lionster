@@ -1,4 +1,4 @@
-import {LayoutComponent} from '../../../components/layouts/layouts.types';
+import {LayoutComponent} from '../../shared/layouts/layouts.types';
 
 export interface LoginPageProps {
 
