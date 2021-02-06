@@ -14,8 +14,8 @@ const HomePage: FunctionComponent<HomePageProps> = () => {
             <Head>
                 <title>{environment.brandName} | Online machine learning playground</title>
             </Head>
-            <div className="container mx-auto px-2">
-                <HomeHeading/>
+            <div className="max-w-screen-lg mx-auto px-4">
+                <HomeHeading className="mx-auto my-6 max-w-2xl"/>
                 {
                     banners.map(({title, description}) =>
                         <HomeBanner key={title}
