@@ -3,9 +3,11 @@ import {FunctionComponent} from 'react';
 export interface SideBarProps {
 }
 
-const SideBar: FunctionComponent<SideBarProps> = () => {
+const SideBar: FunctionComponent<SideBarProps> = ({}) => {
     return (
-        <div>SideBar</div>
+        <div className="w-72 border-r">
+            SideBar
+        </div>
     );
 };
 

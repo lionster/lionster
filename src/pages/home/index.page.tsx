@@ -14,7 +14,7 @@ const HomePage: FunctionComponent<HomePageProps> = () => {
             <Head>
                 <title>{environment.brandName} | Online machine learning playground</title>
             </Head>
-            <div className="container m-auto px-2">
+            <div className="container mx-auto px-2">
                 <HomeHeading/>
                 {
                     banners.map(({title, description}) =>
