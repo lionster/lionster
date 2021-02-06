@@ -1,6 +1,9 @@
 import Document, {DocumentContext, Head, Html, Main, NextScript} from 'next/document';
 import React from 'react';
 
+// @todo Dark mode flag might be moved to App to allow as a user setting.
+const IS_DARK: boolean = false;
+
 export default class LionsterDocument extends Document {
     static async getInitialProps(ctx: DocumentContext) {
         return await Document.getInitialProps(ctx);
@@ -8,7 +11,7 @@ export default class LionsterDocument extends Document {
 
     public render() {
         return (
-            <Html className="dark"
+            <Html className={IS_DARK ? 'dark' : ''}
                   lang="en"
             >
                 <Head>
