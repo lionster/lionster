@@ -18,31 +18,34 @@ module.exports = (phase, {defaultConfig}) => {
         },
         publicRuntimeConfig: {
             // place public keys here (Google Analytics, etc. etc.)
+        },
+        exportPathMap: async (defaultPathMap, {dev, dir, outDir, distDir, buildId}) => {
+            return {
+                '/': {page: '/home'}
+            }
         }
+    }
+    const env = {
+        brandName: 'Lionster',
+        production: true
     }
     if (phase === PHASE_DEVELOPMENT_SERVER) {
         return {
             ...config,
             compress: false,
-            env: {
-                production: false
-            }
+            env: {...env, production: false}
         }
     } else if (phase === PHASE_DEVELOPMENT_SERVER) {
         return {
             ...config,
             poweredByHeader: false,
-            env: {
-                production: true
-            }
+            env
         }
     } else if (phase === PHASE_PRODUCTION_BUILD) {
         return {
             ...config,
             poweredByHeader: false,
-            env: {
-                production: true
-            }
+            env
         }
     }
 }
