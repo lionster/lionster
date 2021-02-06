@@ -1,5 +1,5 @@
 import {FunctionComponent} from 'react';
-import {environment} from 'shared/environment/environment';
+import {environment} from '../../../environment/environment';
 
 export interface HomeHeading {
 

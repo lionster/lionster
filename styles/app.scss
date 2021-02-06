@@ -1,19 +1,27 @@
 @import "config";
+/*
 @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/type";
+*/
 
 // Uncomment as needed.
 // @import "~bootstrap/scss/images";
 // @import "~bootstrap/scss/code";
 // @import "~bootstrap/scss/grid";
 // @import "~bootstrap/scss/tables";
+
+/*
 @import "~bootstrap/scss/forms";
 @import "~bootstrap/scss/buttons";
+*/
+
 // @import "~bootstrap/scss/transitions";
+/*
 @import "~bootstrap/scss/dropdown";
 @import "~bootstrap/scss/button-group";
 @import "~bootstrap/scss/input-group";
+*/
 // @import "~bootstrap/scss/custom-forms";
 // @import "~bootstrap/scss/card";
 // @import "~bootstrap/scss/pagination";
@@ -30,9 +38,8 @@
 // Can conflict with TailwindCSS so avoid if possible.
 // @import "~bootstrap/scss/utilities";
 
-@import "typography";
-@import "utils";
-@import "panels";
+// @import "typography";
+// @import "utils";
 @import "social-buttons";
 
 @tailwind base;

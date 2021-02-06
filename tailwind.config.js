@@ -7,6 +7,5 @@ module.exports = {
     variants: {
         extend: {},
     },
-    plugins: [],
-    prefix: 'tw-'
+    plugins: []
 }

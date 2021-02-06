@@ -1,10 +1,10 @@
-import {LayoutComponent} from '../../shared/layouts/layouts.types';
+import {FunctionComponent} from 'react';
 
 export interface LoginPageProps {
 
 }
 
-const LoginPage: LayoutComponent<LoginPageProps> = () => {
+const LoginPage: FunctionComponent<LoginPageProps> = () => {
     return (
         <div>Log in</div>
     );

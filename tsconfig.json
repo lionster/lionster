@@ -19,8 +19,11 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "paths": {
-      "shared/*": [
-        "src/shared/*"
+      "components/*": [
+        "src/components/*"
+      ],
+      "environment/*": [
+        "src/environment/*"
       ],
       "state/*": [
         "src/state/*"

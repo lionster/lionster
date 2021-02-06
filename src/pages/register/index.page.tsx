@@ -1,10 +1,10 @@
-import {LayoutComponent} from '../../shared/layouts/layouts.types';
+import {FunctionComponent} from 'react';
 
 export interface RegisterPageProps {
 
 }
 
-const RegisterPage: LayoutComponent<RegisterPageProps> = () => {
+const RegisterPage: FunctionComponent<RegisterPageProps> = () => {
     return (
         <div>Sign Up</div>
     );

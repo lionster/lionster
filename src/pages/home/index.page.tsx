@@ -1,6 +1,6 @@
-import {Head} from 'next/document';
-import {environment} from 'shared/environment/environment';
-import {LayoutComponent} from 'shared/layouts/layouts.types';
+import Head from 'next/head';
+import {FunctionComponent} from 'react';
+import {environment} from 'environment/environment';
 import banners from './banners.json';
 import HomeBanner from './components/HomeBanner';
 import HomeHeading from './components/HomeHeading';
@@ -8,20 +8,22 @@ import HomeHeading from './components/HomeHeading';
 export interface HomePageProps {
 }
 
-const HomePage: LayoutComponent<HomePageProps> = () => {
+const HomePage: FunctionComponent<HomePageProps> = () => {
     return (
         <>
             <Head>
                 <title>{environment.brandName} | Online machine learning playground</title>
             </Head>
-            <HomeHeading/>
-            {
-                banners.map(({title, description}) =>
-                    <HomeBanner key={title}
-                                title={title}
-                                description={description}/>
-                )
-            }
+            <div className="container m-auto px-2">
+                <HomeHeading/>
+                {
+                    banners.map(({title, description}) =>
+                        <HomeBanner key={title}
+                                    title={title}
+                                    description={description}/>
+                    )
+                }
+            </div>
         </>
     );
 };

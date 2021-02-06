@@ -1,11 +1,11 @@
-import {LayoutComponent} from '../../shared/layouts/layouts.types';
+import {FunctionComponent} from 'react';
 import styles from './index.module.scss';
 
 export interface AboutPageProps {
 
 }
 
-const AboutPage: LayoutComponent<AboutPageProps> = (props) => {
+const AboutPage: FunctionComponent<AboutPageProps> = (props) => {
     return (
         <div>About</div>
     );

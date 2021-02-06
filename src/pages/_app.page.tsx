@@ -1,10 +1,20 @@
+import SideBar from 'components/side-bar';
+import TopBar from 'components/top-bar';
 import {AppProps} from 'next/app';
 import {FunctionComponent} from 'react';
 import 'styles/app.scss';
 
 const App: FunctionComponent<AppProps> = ({Component, pageProps}) => {
     return (
-        <Component {...pageProps} />
+        <div className="flex">
+            <SideBar/>
+            <div className="flex flex-col">
+                <TopBar/>
+                <div>
+                    <Component {...pageProps} />
+                </div>
+            </div>
+        </div>
     );
 };
 
