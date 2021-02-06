@@ -1,3 +1,4 @@
+import BrandLogo from 'components/side-bar/brand-logo';
 import {FunctionComponent} from 'react';
 
 export interface SideBarProps {
@@ -5,8 +6,11 @@ export interface SideBarProps {
 
 const SideBar: FunctionComponent<SideBarProps> = ({}) => {
     return (
-        <div className="w-72 border-r">
-            SideBar
+        <div className="w-72 dark:bg-gray-800">
+            <BrandLogo/>
+            <div>
+                SideBar
+            </div>
         </div>
     );
 };

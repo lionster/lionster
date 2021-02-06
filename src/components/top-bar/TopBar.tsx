@@ -5,7 +5,7 @@ export interface TopBarProps {
 
 const TopBar: FunctionComponent<TopBarProps> = () => {
     return (
-        <div className="flex border-b">
+        <div className="flex">
             TopBar
         </div>
     );
