@@ -1,7 +1,12 @@
 import Head from 'next/head';
+import {LayoutComponent} from '../components/layouts/layouts.types';
 import styles from './boards.module.scss';
 
-export default function Boards() {
+export interface BoardsProps {
+
+}
+
+export const Boards: LayoutComponent<BoardsProps> = () => {
     return (
         <div className={styles.container}>
             <Head>
@@ -19,4 +24,4 @@ export default function Boards() {
             </main>
         </div>
     );
-}
+};
