@@ -1,0 +1,14 @@
+import {LayoutComponent} from '../../../components/layouts/layouts.types';
+import styles from './index.module.scss';
+
+export interface AboutPageProps {
+
+}
+
+const AboutPage: LayoutComponent<AboutPageProps> = (props) => {
+    return (
+        <div>About</div>
+    );
+};
+
+export default AboutPage;

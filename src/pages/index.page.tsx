@@ -3,10 +3,10 @@ import Link from 'next/link';
 import {LayoutComponent} from '../../components/layouts/layouts.types';
 import styles from './index.module.scss';
 
-export interface IndexPageProps {
+export interface HomePageProps {
 }
 
-const IndexPage: LayoutComponent<IndexPageProps> = () => {
+const HomePage: LayoutComponent<HomePageProps> = () => {
     return (
         <div className={styles.container}>
             <Head>
@@ -25,4 +25,4 @@ const IndexPage: LayoutComponent<IndexPageProps> = () => {
     );
 };
 
-export default IndexPage;
+export default HomePage;
