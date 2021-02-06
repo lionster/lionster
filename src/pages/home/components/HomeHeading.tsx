@@ -1,5 +1,5 @@
+import Logo from 'components/logo';
 import {environment} from 'environment/environment';
-import Image from 'next/image';
 import {FunctionComponent} from 'react';
 
 export interface HomeHeading {
@@ -9,15 +9,7 @@ export interface HomeHeading {
 const HomeHeading: FunctionComponent<HomeHeading> = ({className}) => {
     return (
         <div className={`flex ${className || ''}`}>
-            <div className="flex-grow-1 flex-shrink-0"
-                 style={{width: '256px', height: '256px'}}>
-                <Image className="mb-auto"
-                       src="/logos/logo-color-256.png"
-                       alt={`${environment.brandName} Logo`}
-                       width={256}
-                       height={256}
-                />
-            </div>
+            <Logo size={256}/>
             <div className="flex flex-col">
                 <div className="text-2xl font-bold">
                     The best place to build, test and share TensorFlow models in the cloud.
