@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import {LayoutComponent} from '../components/layouts/layouts.types';
-import styles from '../components/outlets/Home/Home.module.scss';
+import {LayoutComponent} from '../../components/layouts/layouts.types';
+import styles from './index.module.scss';
 
-export interface IndexProps {
+export interface IndexPageProps {
 }
 
-export const Index: LayoutComponent<IndexProps> = () => {
+const IndexPage: LayoutComponent<IndexPageProps> = () => {
     return (
         <div className={styles.container}>
             <Head>
@@ -24,3 +24,5 @@ export const Index: LayoutComponent<IndexProps> = () => {
         </div>
     );
 };
+
+export default IndexPage;

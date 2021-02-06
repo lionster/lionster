@@ -1,12 +1,12 @@
 import Head from 'next/head';
-import {LayoutComponent} from '../components/layouts/layouts.types';
-import styles from './boards.module.scss';
+import {LayoutComponent} from '../../../components/layouts/layouts.types';
+import styles from './index.module.scss';
 
-export interface BoardsProps {
+export interface IndexPageProps {
 
 }
 
-export const Boards: LayoutComponent<BoardsProps> = () => {
+const IndexPage: LayoutComponent<IndexPageProps> = () => {
     return (
         <div className={styles.container}>
             <Head>
@@ -25,3 +25,5 @@ export const Boards: LayoutComponent<BoardsProps> = () => {
         </div>
     );
 };
+
+export default IndexPage;
