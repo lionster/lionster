@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Build & Test",
+    "description": "Upload TensorFlow models quickly and start using them in the web browser with TensorFlowJS. Build a user friendly interface and share with your friends to get instance feedback."
+  },
+  {
+    "title": "Teach & Learn",
+    "description": "Browse, fork and play with Boards created by other members. See how they were created, improve them and share your changes. Real-time collaboration allows you to teach others with comments and interactions."
+  },
+  {
+    "title": "Share Your Work",
+    "description": "Upload your TensorFlow model to the cloud, create a user interface and send it directly to your friend's mobile phone where they can start using it immediately. "
+  }
+]
