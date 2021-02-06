@@ -13,15 +13,16 @@ const HomePage: FunctionComponent<HomePageProps> = () => {
             <Head>
                 <title>{environment.brandName} | Online machine learning playground</title>
             </Head>
-            <div className="max-w-screen-lg mx-auto px-4">
-                <HomeHeading className="mx-auto my-6 max-w-2xl"/>
-                {
-                    (promos as Array<Promo>).map(({id, title, description}) =>
-                        <PromoCard key={id}
-                                   title={title}
-                                   description={description}/>
-                    )
-                }
+            <div className="flex flex-col max-w-screen-lg mx-auto px-4">
+                <HomeHeading className="mx-auto mt-8 mb-24 max-w-2xl"/>
+                <div className="flex space-x-4">
+                    {
+                        (promos as Promo[]).map((promo, indx) => <PromoCard
+                            className="w-1/3"
+                            key={promo.id} promo={promo}
+                        />)
+                    }
+                </div>
             </div>
         </>
     );
