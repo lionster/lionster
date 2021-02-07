@@ -12,12 +12,12 @@ export const SearchBar: DivComponent = ({className}) => {
                 </InputGroup.Prepend>
                 <FormControl placeholder="Search"/>
             </InputGroup>
-            <Link href="/register">
+            <Link href="/users/register">
                 <a className="flex whitespace-nowrap ml-2 btn btn-primary">
                     Sign Up
                 </a>
             </Link>
-            <Link href="/login">
+            <Link href="/users/login">
                 <a className="flex whitespace-nowrap ml-2 btn btn-secondary">
                     Log In
                 </a>

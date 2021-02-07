@@ -1,5 +1,8 @@
-import {AboutCard, ContributorCard, InfoCard, TeamCard} from 'components/about';
 import {FunctionComponent} from 'react';
+import {AboutCard} from './AboutCard';
+import {ContributorCard} from './ContributorCard';
+import {InfoCard} from './InfoCard';
+import {TeamCard} from './TeamCard';
 
 const AboutPage: FunctionComponent = (props) => {
     return (

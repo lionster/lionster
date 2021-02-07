@@ -1,5 +1,6 @@
-import {BooksList, DashboardBar} from 'components/dashboard';
 import {LayoutComponent} from 'components/layouts';
+import {BooksList} from './BooksList';
+import {DashboardBar} from './DashboardBar';
 import {DashboardLayout} from './DashboardLayout';
 
 const DashboardPage: LayoutComponent = () => {

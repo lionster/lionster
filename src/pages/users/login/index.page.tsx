@@ -1,8 +1,8 @@
-import {UsersLayout} from 'components/users';
 import Link from 'next/link';
 import {FunctionComponent} from 'react';
+import {UsersLayout} from '../UsersLayout';
 
-const RegisterPage: FunctionComponent = () => {
+const LoginPage: FunctionComponent = () => {
     return (
         <UsersLayout>
             <div>Placeholder, will be replaced by AWS Amplify form component.</div>
@@ -15,4 +15,4 @@ const RegisterPage: FunctionComponent = () => {
     );
 };
 
-export default RegisterPage;
+export default LoginPage;
