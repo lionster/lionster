@@ -10,7 +10,7 @@ const ACTIONS: SideBarAction[] = [
 
 export const DashboardLayout: DivComponent = ({className, children}) => {
     return (
-        <DivAnd className="flex flex-grow" and={className}>
+        <DivAnd className="flex flex-grow bg-gray-100" and={className}>
             <SideBar actions={ACTIONS}/>
             <div className="flex flex-col w-full">
                 {children}

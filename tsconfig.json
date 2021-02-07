@@ -25,6 +25,9 @@
       "data/*": [
         "src/data/*"
       ],
+      "entities/*": [
+        "src/entities/*"
+      ],
       "environment/*": [
         "src/environment/*"
       ],
