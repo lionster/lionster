@@ -1,4 +1,4 @@
-import {Promo, PromoCard, WelcomeCard} from 'components/home';
+import {Promo, PromoCard, WelcomeCard} from 'components/public';
 import {environment} from 'environment/environment';
 import Head from 'next/head';
 import {FunctionComponent} from 'react';

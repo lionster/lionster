@@ -1,5 +1,5 @@
+import {SearchBar} from 'components/public';
 import {SideBar, SideBarAction} from 'components/side-bar';
-import {TopBar} from 'components/top-bar';
 import {DivAnd, DivComponent} from 'components/utils';
 
 const ACTIONS: SideBarAction[] = [
@@ -14,7 +14,7 @@ export const PublicLayout: DivComponent = ({className, children}) => {
         <DivAnd className="flex flex-grow" and={className}>
             <SideBar actions={ACTIONS}/>
             <div className="flex flex-col w-full">
-                <TopBar/>
+                <SearchBar/>
                 <div className="flex flex-col flex-grow w-full mt-8">
                     {children}
                 </div>

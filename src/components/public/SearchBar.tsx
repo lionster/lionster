@@ -3,7 +3,7 @@ import Link from 'next/link';
 import {FormControl, InputGroup} from 'react-bootstrap';
 import {BsSearch} from 'react-icons/bs';
 
-export const TopBar: DivComponent = ({className}) => {
+export const SearchBar: DivComponent = ({className}) => {
     return (
         <DivAnd className="flex p-4" and={className}>
             <InputGroup>
