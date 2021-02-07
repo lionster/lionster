@@ -30,7 +30,8 @@ const SideBar: FunctionComponent<SideBarProps> = ({className, actions}) => {
             </Link>
             <div className="flex flex-col mt-6">
                 {actions.map(({title, route, className}) => (
-                    <Link href={route}>
+                    <Link key={route}
+                          href={route}>
                         <a className={`btn mb-4 ${className || 'btn-secondary'}`}>{title}</a>
                     </Link>
                 ))}

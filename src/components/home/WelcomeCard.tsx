@@ -2,11 +2,11 @@ import {Logo} from 'components/logo';
 import {environment} from 'environment/environment';
 import {FunctionComponent} from 'react';
 
-export interface Heading {
+export interface WelcomeCardProps {
     className?: string;
 }
 
-export const HomeHeading: FunctionComponent<Heading> = ({className}) => {
+export const WelcomeCard: FunctionComponent<WelcomeCardProps> = ({className}) => {
     return (
         <div className={`flex ${className || ''}`}>
             <Logo size={256}/>

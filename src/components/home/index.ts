@@ -1,2 +1,2 @@
 export * from './PromoCard';
-export * from './Heading';
+export * from './WelcomeCard';

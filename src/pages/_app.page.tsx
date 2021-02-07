@@ -17,7 +17,7 @@ const App: FunctionComponent<AppProps> = ({Component, pageProps}) => {
             <SideBar actions={ACTIONS}/>
             <div className="flex flex-col w-full">
                 <TopBar/>
-                <div className="flex flex-col flex-grow w-full">
+                <div className="flex flex-col flex-grow w-full mt-8">
                     <Component {...pageProps} />
                 </div>
             </div>

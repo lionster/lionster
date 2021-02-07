@@ -1,4 +1,4 @@
-import {HomeHeading, Promo, PromoCard} from 'components/home';
+import {Promo, PromoCard, WelcomeCard} from 'components/home';
 import {environment} from 'environment/environment';
 import Head from 'next/head';
 import {FunctionComponent} from 'react';
@@ -14,7 +14,7 @@ const HomePage: FunctionComponent<HomePageProps> = () => {
                 <title>{environment.brandName} | Online machine learning playground</title>
             </Head>
             <div className="flex flex-col max-w-screen-lg mx-auto px-4">
-                <HomeHeading className="mx-auto mt-8 mb-24 max-w-2xl"/>
+                <WelcomeCard className="mx-auto mb-24 max-w-2xl"/>
                 <div className="flex space-x-4">
                     {
                         (promos as Promo[]).map((promo, indx) => <PromoCard
