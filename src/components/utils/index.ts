@@ -1,1 +1,1 @@
-export * from './with-div';
+export * from './DivAnd';
