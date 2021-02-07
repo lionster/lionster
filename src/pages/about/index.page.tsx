@@ -1,13 +1,7 @@
-import {AboutCard} from 'components/about';
-import {ContributorCard} from 'components/about/ContributorCard';
-import {InfoCard} from 'components/about/InfoCard';
-import {TeamCard} from 'components/about/TeamCard';
+import {AboutCard, ContributorCard, InfoCard, TeamCard} from 'components/about';
 import {FunctionComponent} from 'react';
 
-export interface AboutPageProps {
-}
-
-const AboutPage: FunctionComponent<AboutPageProps> = (props) => {
+const AboutPage: FunctionComponent = (props) => {
     return (
         <div className="max-w-screen-lg mx-auto px-4">
             <div className="flex space-x-4">
