@@ -6,7 +6,7 @@ const LoginPage: FunctionComponent = () => {
     return (
         <UsersLayout>
             <div>Placeholder, will be replaced by AWS Amplify form component.</div>
-            <Link href="/dashboard">
+            <Link href="/app/dashboard">
                 <a className="btn btn-primary mx-auto mt-8">
                     Continue
                 </a>

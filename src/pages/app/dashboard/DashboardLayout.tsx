@@ -1,5 +1,3 @@
-import {DashboardBar} from 'components/dashboard';
-import {Boards} from 'components/dashboard/Boards';
 import {SideBar, SideBarAction} from 'components/side-bar';
 import {DivAnd, DivComponent} from 'components/utils';
 
@@ -15,8 +13,7 @@ export const DashboardLayout: DivComponent = ({className, children}) => {
         <DivAnd className="flex flex-grow" and={className}>
             <SideBar actions={ACTIONS}/>
             <div className="flex flex-col w-full">
-                <DashboardBar/>
-                <Boards className="mx-4"/>
+                {children}
             </div>
         </DivAnd>
     );
