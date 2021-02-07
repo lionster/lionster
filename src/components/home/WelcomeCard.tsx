@@ -1,14 +1,10 @@
 import {Logo} from 'components/logo';
+import {DivAnd, DivComponent} from 'components/utils';
 import {environment} from 'environment/environment';
-import {FunctionComponent} from 'react';
 
-export interface WelcomeCardProps {
-    className?: string;
-}
-
-export const WelcomeCard: FunctionComponent<WelcomeCardProps> = ({className}) => {
+export const WelcomeCard: DivComponent = ({className}) => {
     return (
-        <div className={`flex ${className || ''}`}>
+        <DivAnd className="flex" and={className}>
             <Logo size={256}/>
             <div className="flex flex-col">
                 <div className="text-2xl font-bold">
@@ -19,6 +15,6 @@ export const WelcomeCard: FunctionComponent<WelcomeCardProps> = ({className}) =>
                     developers to create real-time <span>demos</span> of their ideas with as little coding as possible.
                 </div>
             </div>
-        </div>
+        </DivAnd>
     );
 };

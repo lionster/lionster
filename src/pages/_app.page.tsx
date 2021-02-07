@@ -1,4 +1,4 @@
-import SideBar, {SideBarAction} from 'components/side-bar/SideBar';
+import {SideBar, SideBarAction} from 'components/side-bar/SideBar';
 import {TopBar} from 'components/top-bar';
 import {AppProps} from 'next/app';
 import {FunctionComponent} from 'react';

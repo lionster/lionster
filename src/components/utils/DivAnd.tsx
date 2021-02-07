@@ -5,12 +5,14 @@ import {FunctionComponent} from 'react';
  */
 export interface DivProps {
     className?: string;
+
+    style?: object;
 }
 
 /**
  * Declines a functional component that has a className property.
  */
-export type DivComponent<TType extends DivProps = DivProps> = FunctionComponent<TType>;
+export type DivComponent<TType extends {} = {}> = FunctionComponent<TType & DivProps>;
 
 /**
  * Props for the DivAnd component.
@@ -22,10 +24,14 @@ export interface DivAndProps extends DivProps {
 /**
  * Renders a div with with two className properties.
  */
-export const DivAnd: FunctionComponent<DivAndProps> = ({className, and, children}) => {
+export const DivAnd: FunctionComponent<DivAndProps> = ({className, and, style, children}) => {
     const a = className || '';
     const b = and || '';
     return (
-        <div className={(a + b).trim()}>{children}</div>
+        <div className={(a + b).trim()}
+             style={style}
+        >
+            {children}
+        </div>
     );
 };

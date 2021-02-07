@@ -1,15 +1,11 @@
+import {DivAnd, DivComponent} from 'components/utils';
 import Link from 'next/link';
-import {FunctionComponent} from 'react';
 import {FormControl, InputGroup} from 'react-bootstrap';
 import {BsSearch} from 'react-icons/bs';
 
-export interface TopBarProps {
-    className?: string;
-}
-
-export const TopBar: FunctionComponent<TopBarProps> = ({className}) => {
+export const TopBar: DivComponent = ({className}) => {
     return (
-        <div className={`flex p-4 ${className || ''}`}>
+        <DivAnd className="flex p-4" and={className}>
             <InputGroup>
                 <InputGroup.Prepend>
                     <InputGroup.Text><BsSearch/></InputGroup.Text>
@@ -26,6 +22,6 @@ export const TopBar: FunctionComponent<TopBarProps> = ({className}) => {
                     Log In
                 </a>
             </Link>
-        </div>
+        </DivAnd>
     );
 };

@@ -4,10 +4,7 @@ import Head from 'next/head';
 import {FunctionComponent} from 'react';
 import promos from './promos.json';
 
-export interface HomePageProps {
-}
-
-const HomePage: FunctionComponent<HomePageProps> = () => {
+const HomePage: FunctionComponent = () => {
     return (
         <>
             <Head>

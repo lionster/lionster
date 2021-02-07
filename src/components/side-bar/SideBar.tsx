@@ -1,7 +1,7 @@
 import {Logo} from 'components/logo';
+import {DivAnd, DivComponent} from 'components/utils';
 import {environment} from 'environment/environment';
 import Link from 'next/link';
-import {FunctionComponent} from 'react';
 
 export interface SideBarAction {
     title: string;
@@ -12,14 +12,12 @@ export interface SideBarAction {
 }
 
 export interface SideBarProps {
-    className?: string;
-
     actions: SideBarAction[];
 }
 
-const SideBar: FunctionComponent<SideBarProps> = ({className, actions}) => {
+export const SideBar: DivComponent<SideBarProps> = ({className, actions}) => {
     return (
-        <div className={`bg-gray-200 dark:bg-gray-800 p-4 ${className || ''}`}>
+        <DivAnd className="bg-gray-200 dark:bg-gray-800 p-4" and={className}>
             <Link href="/">
                 <a className="flex m-2 items-center justify-center">
                     <Logo size={32}/>
@@ -36,8 +34,6 @@ const SideBar: FunctionComponent<SideBarProps> = ({className, actions}) => {
                     </Link>
                 ))}
             </div>
-        </div>
+        </DivAnd>
     );
 };
-
-export default SideBar;

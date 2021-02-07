@@ -1,9 +1,6 @@
 import {FunctionComponent} from 'react';
 
-export interface LoginPageProps {
-}
-
-const LoginPage: FunctionComponent<LoginPageProps> = () => {
+const LoginPage: FunctionComponent = () => {
     return (
         <div>Log in</div>
     );
