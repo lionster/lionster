@@ -1,5 +1,6 @@
+import Link from 'next/link';
 import {FunctionComponent} from 'react';
-import {Button, FormControl, InputGroup} from 'react-bootstrap';
+import {FormControl, InputGroup} from 'react-bootstrap';
 import {BsSearch} from 'react-icons/bs';
 
 export interface TopBarProps {
@@ -15,15 +16,16 @@ export const TopBar: FunctionComponent<TopBarProps> = ({className}) => {
                 </InputGroup.Prepend>
                 <FormControl placeholder="Search"/>
             </InputGroup>
-            <Button className="flex whitespace-nowrap ml-2"
-            >
-                Sign Up
-            </Button>
-            <Button className="flex whitespace-nowrap ml-2"
-                    variant="secondary"
-            >
-                Log In
-            </Button>
+            <Link href="/register">
+                <a className="flex whitespace-nowrap ml-2 btn btn-primary">
+                    Sign Up
+                </a>
+            </Link>
+            <Link href="/login">
+                <a className="flex whitespace-nowrap ml-2 btn btn-secondary">
+                    Log In
+                </a>
+            </Link>
         </div>
     );
 };
