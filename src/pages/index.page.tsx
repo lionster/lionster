@@ -2,7 +2,7 @@ import {Promo, PromoCard, WelcomeCard} from 'components/home';
 import {environment} from 'environment/environment';
 import Head from 'next/head';
 import {FunctionComponent} from 'react';
-import promos from './promos.json';
+import promos from 'data/promos.json';
 
 const HomePage: FunctionComponent = () => {
     return (
