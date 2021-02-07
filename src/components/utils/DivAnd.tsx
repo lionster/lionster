@@ -21,16 +21,24 @@ export interface DivAndProps extends DivProps {
     and?: string;
 }
 
+const divJoinAnd = (className: string, and: string): string => {
+    if (className && and) {
+        return className + ' ' + and;
+    } else if (className) {
+        return className;
+    } else if (and) {
+        return and;
+    }
+    return '';
+};
+
 /**
  * Renders a div with with two className properties.
  */
 export const DivAnd: FunctionComponent<DivAndProps> = ({className, and, style, children}) => {
-    const a = className || '';
-    const b = and || '';
     return (
-        <div className={(a + b).trim()}
-             style={style}
-        >
+        <div className={divJoinAnd(className, and)}
+             style={style}>
             {children}
         </div>
     );
