@@ -9,7 +9,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@aws-amplify/ui-react": "^0.2.38",
     "autoprefixer": "^10.2.4",
+    "aws-amplify": "^3.3.18",
     "bootstrap": "^4.6.0",
     "next": "10.0.6",
     "postcss": "^8.2.4",
