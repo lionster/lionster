@@ -20,29 +20,17 @@ module.exports = (phase, {defaultConfig}) => {
             // place public keys here (Google Analytics, etc. etc.)
         }
     }
-    if (phase === PHASE_DEVELOPMENT_SERVER) {
-        return {
-            ...config,
-            compress: false,
-            env: {
-                production: false
-            }
-        }
-    } else if (phase === PHASE_DEVELOPMENT_SERVER) {
-        return {
-            ...config,
-            poweredByHeader: false,
-            env: {
-                production: true
-            }
-        }
-    } else if (phase === PHASE_PRODUCTION_BUILD) {
-        return {
-            ...config,
-            poweredByHeader: false,
-            env: {
-                production: true
-            }
-        }
+    const env = {
+        brandName: 'Lionster',
+        production: true
     }
+    return phase === PHASE_DEVELOPMENT_SERVER
+        ? {
+            ...config,
+            env: {...env, production: false}
+        } : {
+            ...config,
+            poweredByHeader: false,
+            env
+        }
 }

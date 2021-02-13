@@ -2,34 +2,14 @@
 @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/type";
-@import "~bootstrap/scss/images";
-@import "~bootstrap/scss/code";
-@import "~bootstrap/scss/grid";
-@import "~bootstrap/scss/tables";
-@import "~bootstrap/scss/forms";
-@import "~bootstrap/scss/buttons";
-@import "~bootstrap/scss/transitions";
-@import "~bootstrap/scss/dropdown";
-@import "~bootstrap/scss/button-group";
-@import "~bootstrap/scss/input-group";
-@import "~bootstrap/scss/custom-forms";
-// @import "~bootstrap/scss/card";
-// @import "~bootstrap/scss/pagination";
-// @import "~bootstrap/scss/badge";
-@import "~bootstrap/scss/alert";
-// @import "~bootstrap/scss/progress";
-// @import "~bootstrap/scss/list-group";
-@import "~bootstrap/scss/close";
-@import "~bootstrap/scss/modal";
-@import "~bootstrap/scss/tooltip";
-@import "~bootstrap/scss/popover";
-//@import "~bootstrap/scss/carousel";
-@import "~bootstrap/scss/utilities";
 
-@import "typography";
-@import "utils";
-@import "panels";
 @import "social-buttons";
+
+@tailwind base;
+@tailwind components;
+@tailwind screens;
+@tailwind utilities;
+
 
 html, body {
   display: block;
@@ -52,6 +32,24 @@ html, body {
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
   -ms-text-size-adjust: none;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+html {
+  &.dark {
+    @import "bootstrap_dark";
+    @import "bootstrap";
+  }
+
+  &:not(.dark) {
+    @import "bootstrap_light";
+    @import "bootstrap";
+  }
 }
 
 ul {

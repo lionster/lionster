@@ -1,12 +1,8 @@
 import Head from 'next/head';
-import {LayoutComponent} from '../../../components/layouts/layouts.types';
+import {FunctionComponent} from 'react';
 import styles from './index.module.scss';
 
-export interface IndexPageProps {
-
-}
-
-const IndexPage: LayoutComponent<IndexPageProps> = () => {
+const IndexPage: FunctionComponent = () => {
     return (
         <div className={styles.container}>
             <Head>
