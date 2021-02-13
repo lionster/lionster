@@ -1,0 +1,11 @@
+# Welcome to Serverless!
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+lionster:
+  component: "@sls-next/serverless-component@1.19.0-alpha.31"
+  inputs:
+    cloudfront:
+      comment: 'NextJs SSR support for Lionster'
+      priceClass: "PriceClass_100"

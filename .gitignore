@@ -78,3 +78,9 @@ amplify-build-config.json
 amplify-gradle-config.json
 amplifytools.xcconfig
 .secret-*
+
+#serverless
+.serverless
+.serverless_nextjs
+.serverless_plugins
+.serverlessUnzipped
