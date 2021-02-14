@@ -9,7 +9,8 @@
     "start": "next start",
     "test": "jest --coverage=true --ci",
     "test:watch": "jest --coverage=true --watch",
-    "lint": "eslint --ext .ts,.tsx"
+    "lint": "eslint --ext .ts,.tsx",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@aws-amplify/ui-react": "^0.2.38",
