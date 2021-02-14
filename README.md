@@ -1,6 +1,8 @@
-![Travis (.com)](https://img.shields.io/travis/com/lionster/lionster)
-
-![Codecov](https://img.shields.io/codecov/c/github/lionster/lionster?token=jrlPTed8y2)
+[![Build Status](https://travis-ci.com/lionster/lionster.svg?branch=main)](https://travis-ci.com/lionster/lionster)
+[![codecov](https://codecov.io/gh/lionster/lionster/branch/main/graph/badge.svg?token=jrlPTed8y2)](https://codecov.io/gh/lionster/lionster)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/7a17b1ff2de04c94b1b76a0cd7126f3c)](https://www.codacy.com/gh/lionster/lionster/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=lionster/lionster&amp;utm_campaign=Badge_Grade)
+[![GitHub contributors](https://img.shields.io/github/contributors/lionster/lionster)](https://github.com/lionster/lionster/graphs/contributors)
+![Platforms](https://img.shields.io/badge/platforms-aws-blue)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped
 with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
