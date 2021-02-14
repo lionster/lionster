@@ -11,7 +11,10 @@ interface LayoutProps {
     Component: LayoutComponent;
 }
 
-const App: FunctionComponent<AppProps & LayoutProps> = ({Component, pageProps}) => {
+const App: FunctionComponent<AppProps & LayoutProps> = ({
+    Component,
+    pageProps
+}) => {
     const Layout = Component.layoutComponent || PublicLayout;
     const layoutProps = Component.layoutProps || {};
     return (

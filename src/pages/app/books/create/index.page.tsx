@@ -5,9 +5,7 @@ import {BooksLayout} from '../BooksLayout';
  * @todo you need to add a provider for the BookEntity
  */
 const BooksCreatePage: LayoutComponent = () => {
-    return (
-        <div/>
-    );
+    return <div />;
 };
 
 BooksCreatePage.layoutComponent = BooksLayout;

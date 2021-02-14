@@ -12,7 +12,9 @@ export interface DivProps {
 /**
  * Declines a functional component that has a className property.
  */
-export type DivComponent<TType extends {} = {}> = FunctionComponent<TType & DivProps>;
+export type DivComponent<TType extends {} = {}> = FunctionComponent<
+    TType & DivProps
+>;
 
 /**
  * Props for the DivAnd component.
@@ -35,10 +37,14 @@ const divJoinAnd = (className: string, and: string): string => {
 /**
  * Renders a div with with two className properties.
  */
-export const DivAnd: FunctionComponent<DivAndProps> = ({className, and, style, children}) => {
+export const DivAnd: FunctionComponent<DivAndProps> = ({
+    className,
+    and,
+    style,
+    children
+}) => {
     return (
-        <div className={divJoinAnd(className, and)}
-             style={style}>
+        <div className={divJoinAnd(className, and)} style={style}>
             {children}
         </div>
     );

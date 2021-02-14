@@ -12,9 +12,9 @@ const ACTIONS: SideBarAction[] = [
 export const PublicLayout: DivComponent = ({className, children}) => {
     return (
         <DivAnd className="flex flex-grow" and={className}>
-            <SideBar actions={ACTIONS}/>
+            <SideBar actions={ACTIONS} />
             <div className="flex flex-col w-full">
-                <SearchBar/>
+                <SearchBar />
                 <div className="flex flex-col flex-grow w-full mt-8">
                     {children}
                 </div>

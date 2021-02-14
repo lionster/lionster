@@ -1,0 +1,27 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:prettier/recommended",
+        "plugin:prettier/react",
+        "plugin:prettier/@typescript-eslint"
+    ],
+    "plugins": ["@typescript-eslint", "react", "react-hooks", "prettier"],
+    "rules": {
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-first-prop-new-line": [1, "multiline"],
+        "react/jsx-max-props-per-line": [
+            1,
+            {
+                "maximum": 1
+            }
+        ],
+        "react/jsx-indent-props": [2, 2],
+        "react/jsx-closing-bracket-location": [2, "tag-aligned"]
+    },
+    "globals": {
+        "React": "writable"
+    }
+}
