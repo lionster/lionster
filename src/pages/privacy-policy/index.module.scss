@@ -1,0 +1,16 @@
+.privacyPolicy {
+    @apply max-w-screen-lg mx-auto px-4;
+
+    header {
+        @apply font-bold text-2xl;
+    }
+
+    section {
+        h2 {
+            @apply font-bold text-lg mt-4 mb-2;
+        }
+        p {
+            @apply py-1;
+        }
+    }
+}

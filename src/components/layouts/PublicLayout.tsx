@@ -5,8 +5,9 @@ import {DivAnd, DivComponent} from '../utils';
 const ACTIONS: SideBarAction[] = [
     {title: 'Start Now', route: '/boards/create', className: 'btn-primary'},
     {title: 'Trending', route: '/boards?trending=true'},
+    {title: 'Blog', route: '/blog'},
     {title: 'About', route: '/about'},
-    {title: 'Blog', route: '/blog'}
+    {title: 'Privacy Policy', route: '/privacy-policy'}
 ];
 
 export const PublicLayout: DivComponent = ({className, children}) => {

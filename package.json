@@ -15,7 +15,8 @@
         "pretty:check": "pretty-quick --check",
         "postinstall": "npm run config:hooks",
         "config:hooks": "git config --local core.hooksPath .githooks",
-        "git:pre-commit": "npm run pretty:staged && npm run lint"
+        "git:pre-commit": "npm run pretty:staged && npm run lint",
+        "deploy:front": "npm run build && npm run test && npx serverless"
     },
     "dependencies": {
         "@aws-amplify/ui-react": "^0.2.38",
@@ -42,6 +43,7 @@
         "@types/react": "^17.0.0",
         "@typescript-eslint/eslint-plugin": "^4.15.0",
         "@typescript-eslint/parser": "^4.15.0",
+        "babel": "^6.23.0",
         "babel-jest": "^26.6.3",
         "codecov": "^3.8.1",
         "eslint": "^7.20.0",
