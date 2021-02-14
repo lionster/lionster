@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "jest --ci",
-    "test:watch": "jest --watch",
+    "test": "jest --coverage=true --ci",
+    "test:watch": "jest --coverage=true --watch",
     "next": "next",
     "dev": "next dev",
     "build": "next build",
@@ -34,6 +34,7 @@
     "@types/node": "^14.14.22",
     "@types/react": "^17.0.0",
     "babel-jest": "^26.6.3",
+    "codecov": "^3.8.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "ts-jest": "^26.5.1",
