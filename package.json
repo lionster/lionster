@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "test": "jest",
     "next": "next",
     "dev": "next dev",
     "build": "next build",
@@ -23,9 +24,18 @@
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
+    "@testing-library/dom": "^7.29.4",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.7.1",
+    "@types/jest": "^26.0.20",
     "@types/next": "^9.0.0",
     "@types/node": "^14.14.22",
     "@types/react": "^17.0.0",
+    "babel-jest": "^26.6.3",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.1",
     "typescript": "^4.1.3"
   }
 }
