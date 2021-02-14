@@ -12,7 +12,7 @@
     "lint": "eslint --ext .ts,.tsx",
     "postinstall": "npm run config:hooks",
     "config:hooks": "git config --local core.hooksPath .githooks",
-    "git:pre-commit": "pretty-quick --staged && npm run lint"
+    "git:pre-commit": "pretty-quick --staged && npm run lint && npm run test"
   },
   "dependencies": {
     "@aws-amplify/ui-react": "^0.2.38",
