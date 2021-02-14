@@ -1,3 +1,7 @@
+![Travis (.com)](https://img.shields.io/travis/com/lionster/lionster)
+
+![Codecov](https://img.shields.io/codecov/c/github/lionster/lionster?token=jrlPTed8y2)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped
 with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
