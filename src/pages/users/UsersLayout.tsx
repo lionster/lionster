@@ -1,4 +1,4 @@
-import {DivAnd, DivComponent} from 'components/utils';
+import {DivAnd, DivComponent} from '../../components/utils';
 
 export const UsersLayout: DivComponent = ({className, children}) => {
     return (

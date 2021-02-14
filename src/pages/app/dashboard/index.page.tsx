@@ -1,4 +1,4 @@
-import {LayoutComponent} from 'components/layouts';
+import {LayoutComponent} from '../../../components/layouts';
 import {BooksList} from './BooksList';
 import {DashboardBar} from './DashboardBar';
 import {DashboardLayout} from './DashboardLayout';

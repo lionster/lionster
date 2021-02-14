@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import {DivAnd, DivComponent} from 'components/utils';
 import {FaPlus} from 'react-icons/fa';
+import {DivAnd, DivComponent} from '../../../components/utils';
 
 export const BoardTemplates: DivComponent = ({className}) => {
     return (

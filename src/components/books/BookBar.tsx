@@ -1,8 +1,8 @@
-import {DivAnd, DivComponent} from 'components/utils';
-import {BookEntity} from 'entities/book-entity';
-import {environment} from 'environment/environment';
 import Link from 'next/link';
 import {FaStar} from 'react-icons/fa';
+import {BookEntity} from '../../entities/book-entity';
+import {environment} from '../../environment/environment';
+import {DivAnd, DivComponent} from '../utils';
 
 export interface BookBarProps {
     book: BookEntity;

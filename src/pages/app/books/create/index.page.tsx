@@ -1,4 +1,4 @@
-import {LayoutComponent} from 'components/layouts';
+import {LayoutComponent} from '../../../../components/layouts';
 import {BooksLayout} from '../BooksLayout';
 
 /**

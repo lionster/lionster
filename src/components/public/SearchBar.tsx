@@ -1,7 +1,7 @@
-import {DivAnd, DivComponent} from 'components/utils';
 import Link from 'next/link';
 import {FormControl, InputGroup} from 'react-bootstrap';
 import {BsSearch} from 'react-icons/bs';
+import {DivAnd, DivComponent} from '../utils';
 
 export const SearchBar: DivComponent = ({className}) => {
     return (

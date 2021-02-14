@@ -1,6 +1,6 @@
-import {DivAnd, DivComponent} from 'components/utils';
-import {environment} from 'environment/environment';
 import Image from 'next/image';
+import {environment} from '../../environment/environment';
+import {DivAnd, DivComponent} from '../utils';
 
 export interface LogoProps {
     size: 512 | 256 | 128 | 64 | 32;
