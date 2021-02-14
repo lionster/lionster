@@ -2,6 +2,11 @@ sudo: false
 language: node_js
 node_js:
   - 10
+branches:
+  only:
+    - main
+    - develop
+    - /^\d+\.\d+(\.(\d+|x))?(-\S*)?$/
 install:
   - npm install
 script:
