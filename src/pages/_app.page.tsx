@@ -1,11 +1,8 @@
-import {Amplify} from 'aws-amplify';
 import {AppProps} from 'next/app';
 import {FunctionComponent} from 'react';
 import 'styles/app.scss';
-import awsExports from '../aws-exports';
 import {LayoutComponent, PublicLayout} from '../components/layouts';
-
-Amplify.configure({...awsExports, ssr: true});
+import '../config/config-amplify';
 
 interface LayoutProps {
     Component: LayoutComponent;
