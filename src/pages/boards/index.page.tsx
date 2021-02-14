@@ -10,13 +10,8 @@ const IndexPage: FunctionComponent = () => {
             </Head>
 
             <main className={styles.main}>
-                <h1 className={styles.title}>
-                    Publicly shared boards
-                </h1>
-
-                <p className={styles.description}>
-                    List of boards goes here
-                </p>
+                <h1 className={styles.title}>Publicly shared boards</h1>
+                <p className={styles.description}>List of boards goes here</p>
             </main>
         </div>
     );

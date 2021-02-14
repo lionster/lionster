@@ -8,7 +8,7 @@ export const ContributorCard: DivComponent = ({className}) => {
                 <div className="font-bold">John Smith</div>
                 <div className="text-sm">JavaScript Developer</div>
             </div>
-            <FaGithub className="ml-auto my-auto text-4xl"/>
+            <FaGithub className="ml-auto my-auto text-4xl" />
         </DivAnd>
     );
 };

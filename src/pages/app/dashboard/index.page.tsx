@@ -6,8 +6,8 @@ import {DashboardLayout} from './DashboardLayout';
 const DashboardPage: LayoutComponent = () => {
     return (
         <>
-            <DashboardBar/>
-            <BooksList className="mx-4"/>
+            <DashboardBar />
+            <BooksList className="mx-4" />
         </>
     );
 };

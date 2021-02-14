@@ -8,9 +8,11 @@ export const SearchBar: DivComponent = ({className}) => {
         <DivAnd className="flex p-4" and={className}>
             <InputGroup>
                 <InputGroup.Prepend>
-                    <InputGroup.Text><BsSearch/></InputGroup.Text>
+                    <InputGroup.Text>
+                        <BsSearch />
+                    </InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl placeholder="Search"/>
+                <FormControl placeholder="Search" />
             </InputGroup>
             <Link href="/users/register">
                 <a className="flex whitespace-nowrap ml-2 btn btn-primary">

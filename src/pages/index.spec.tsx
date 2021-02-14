@@ -3,6 +3,6 @@ import Index from './index.page';
 
 describe('Index', () => {
     it('should work', () => {
-        render(<Index/>)
+        render(<Index />);
     });
 });
