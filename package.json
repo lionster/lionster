@@ -10,7 +10,9 @@
     "test": "jest --coverage=true --ci",
     "test:watch": "jest --coverage=true --watch",
     "lint": "eslint --ext .ts,.tsx",
-    "postinstall": "husky install"
+    "postinstall": "npm run config:hooks",
+    "config:hooks": "git config --local core.hooksPath .githooks",
+    "git:pre-commit": "pretty-quick --staged && npm run lint"
   },
   "dependencies": {
     "@aws-amplify/ui-react": "^0.2.38",
@@ -43,17 +45,11 @@
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
-    "husky": "^5.0.9",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "prettier": "^2.2.1",
     "pretty-quick": "^3.1.0",
     "ts-jest": "^26.5.1",
     "typescript": "^4.1.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged && npm run lint"
-    }
   }
 }
