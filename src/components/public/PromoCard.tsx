@@ -1,6 +1,6 @@
-import {DivAnd, DivComponent} from 'components/utils';
 import React from 'react';
 import {FaSearch} from 'react-icons/fa';
+import {DivAnd, DivComponent} from '../utils';
 
 export interface Promo {
     id: number;

@@ -1,8 +1,8 @@
-import {Promo, PromoCard, WelcomeCard} from 'components/public';
-import {environment} from 'environment/environment';
 import Head from 'next/head';
 import {FunctionComponent} from 'react';
-import promos from 'data/promos.json';
+import {Promo, PromoCard, WelcomeCard} from '../components/public';
+import {environment} from '../environment/environment';
+import promos from '../data/promos.json';
 
 const HomePage: FunctionComponent = () => {
     return (

@@ -1,5 +1,5 @@
+import {DivAnd, DivComponent} from '../../../components/utils';
 import {BoardTemplates} from './BoardTemplates';
-import {DivAnd, DivComponent} from 'components/utils';
 
 export const BooksList: DivComponent = ({className}) => {
     return (

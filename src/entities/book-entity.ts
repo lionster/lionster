@@ -1,4 +1,4 @@
-import {Entity} from 'entities/entity';
+import {Entity} from './entity';
 
 export interface BookEntity extends Entity {
     favorite: boolean;

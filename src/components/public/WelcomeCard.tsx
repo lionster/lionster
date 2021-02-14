@@ -1,6 +1,6 @@
-import {Logo} from 'components/logo';
-import {DivAnd, DivComponent} from 'components/utils';
-import {environment} from 'environment/environment';
+import {environment} from '../../environment/environment';
+import {Logo} from '../logo';
+import {DivAnd, DivComponent} from '../utils';
 
 export const WelcomeCard: DivComponent = ({className}) => {
     return (

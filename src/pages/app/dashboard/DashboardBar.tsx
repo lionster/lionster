@@ -1,7 +1,7 @@
-import {DivAnd, DivComponent} from 'components/utils';
 import {FormControl, InputGroup} from 'react-bootstrap';
 import {BsSearch} from 'react-icons/bs';
 import {FaBell, FaQuestionCircle, FaUser} from 'react-icons/fa';
+import {DivAnd, DivComponent} from '../../../components/utils';
 
 export const DashboardBar: DivComponent = ({className}) => {
     return (

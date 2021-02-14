@@ -1,5 +1,5 @@
-import {DivAnd, DivComponent} from 'components/utils';
-import {environment} from 'environment/environment';
+import {DivAnd, DivComponent} from '../../components/utils';
+import {environment} from '../../environment/environment';
 
 export const AboutCard: DivComponent = ({className}) => {
     return (
