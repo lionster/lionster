@@ -1,9 +1,11 @@
 import Link from 'next/link';
+import {useUser} from '../../hooks/users';
 import {DivComponent} from '../utils';
 
 export const UserBar: DivComponent = ({className}) => {
-    return (
-        <div className={className}>
+    const user = useUser();
+    const anonymous = (
+        <>
             <Link href="/users/register">
                 <a className="flex whitespace-nowrap ml-2 btn btn-primary">
                     Sign Up
@@ -14,6 +16,14 @@ export const UserBar: DivComponent = ({className}) => {
                     Log In
                 </a>
             </Link>
-        </div>
+        </>
     );
+    const hasUser = (
+        <Link href="/users/logout">
+            <a className="flex whitespace-nowrap ml-2 btn btn-secondary">
+                Log Out
+            </a>
+        </Link>
+    );
+    return <div className={className}>{user.user ? hasUser : anonymous}</div>;
 };
