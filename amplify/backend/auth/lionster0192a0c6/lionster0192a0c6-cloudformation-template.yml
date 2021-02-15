@@ -98,9 +98,6 @@ Parameters:
     hostedUIProviderMeta:
         Type: String
 
-    hostedUIProviderCreds:
-        Type: String
-
     oAuthMetadata:
         Type: String
 
@@ -116,8 +113,26 @@ Parameters:
     dependsOn:
         Type: CommaDelimitedList
 
+    hostedUIProviderCreds:
+        Type: String
+
+    userPoolGroups:
+        Type: String
+
+    adminQueries:
+        Type: String
+
+    thirdPartyAuth:
+        Type: String
+
+    authProviders:
+        Type: CommaDelimitedList
+
 Conditions:
     ShouldNotCreateEnvResources: !Equals [!Ref env, NONE]
+
+    ShouldOutputAppClientSecrets:
+        !Equals [!Ref userpoolClientGenerateSecret, true]
 
 Resources:
     # BEGIN SNS ROLE RESOURCE
@@ -789,3 +804,4 @@ Outputs:
         Description: The user pool app client id
     AppClientSecret:
         Value: !GetAtt UserPoolClientInputs.appSecret
+        Condition: ShouldOutputAppClientSecrets
