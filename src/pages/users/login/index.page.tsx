@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import {CognitoHostedUIIdentityProvider} from '@aws-amplify/auth';
+import {Auth} from 'aws-amplify';
 import {FunctionComponent} from 'react';
 import {UsersLayout} from '../UsersLayout';
 
@@ -8,9 +9,16 @@ const LoginPage: FunctionComponent = () => {
             <div>
                 Placeholder, will be replaced by AWS Amplify form component.
             </div>
-            <Link href="/app/dashboard">
-                <a className="btn btn-primary mx-auto mt-8">Continue</a>
-            </Link>
+            <button
+                className="btn btn-primary mx-auto mt-8"
+                onClick={() =>
+                    Auth.federatedSignIn({
+                        provider: CognitoHostedUIIdentityProvider.Google
+                    })
+                }
+            >
+                Sign in with Google
+            </button>
         </UsersLayout>
     );
 };

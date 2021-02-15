@@ -1,16 +1,17 @@
 sudo: false
 language: node_js
 node_js:
-  - 10
+    - 14
 branches:
-  only:
-    - main
-    - develop
-    - /^\d+\.\d+(\.(\d+|x))?(-\S*)?$/
+    only:
+        - main
+        - develop
+        - /^\d+\.\d+(\.(\d+|x))?(-\S*)?$/
 install:
-  - npm install
+    - npm install
 script:
-  - npm run pretty:check
-  - npm run lint
-  - npm run test
-  - codecov -f coverage/*.json
+    - npm run pretty:check
+    - npm run lint
+    - npm run build
+    - npm run test
+    - codecov -f coverage/*.json
