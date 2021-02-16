@@ -1,14 +1,11 @@
 import {CognitoHostedUIIdentityProvider} from '@aws-amplify/auth';
 import {Auth} from 'aws-amplify';
 import {FunctionComponent} from 'react';
-import {UsersLayout} from '../UsersLayout';
+import {UsersLayout} from './UsersLayout';
 
 const LoginPage: FunctionComponent = () => {
     return (
         <UsersLayout>
-            <div>
-                Placeholder, will be replaced by AWS Amplify form component.
-            </div>
             <button
                 className="btn btn-primary mx-auto mt-8"
                 onClick={() =>
