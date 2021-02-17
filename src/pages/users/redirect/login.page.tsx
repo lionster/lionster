@@ -1,27 +1,8 @@
-import {useRouter} from 'next/router';
 import {FunctionComponent} from 'react';
-import {useSession} from '../../../hooks/users/useSession';
-import {useEffectAsync} from '../../../hooks/utils';
-import {UsersLayout} from '../UsersLayout';
+import {RedirectLoginContent} from '../../../components/pages/users/redirect/RedirectLoginContent';
 
-/**
- * @todo This component is temp, and taking the place of a router guard.
- */
-const RedirectPage: FunctionComponent = () => {
-    const session = useSession();
-    const router = useRouter();
-
-    useEffectAsync(async () => {
-        if (session.status === 'loaded' && session.session) {
-            await router.push('/app/dashboard');
-        }
-    }, [session]);
-
-    return (
-        <UsersLayout>
-            <div>We're preparing your workspace. One moment...</div>
-        </UsersLayout>
-    );
+const RedirectLoginPage: FunctionComponent = () => {
+    return <RedirectLoginContent />;
 };
 
-export default RedirectPage;
+export default RedirectLoginPage;

@@ -1,23 +1,8 @@
-import {CognitoHostedUIIdentityProvider} from '@aws-amplify/auth';
-import {Auth} from 'aws-amplify';
 import {FunctionComponent} from 'react';
-import {UsersLayout} from './UsersLayout';
+import {LoginContent} from '../../components/pages/users/LoginContent';
 
 const LoginPage: FunctionComponent = () => {
-    return (
-        <UsersLayout>
-            <button
-                className="btn btn-primary mx-auto mt-8"
-                onClick={() =>
-                    Auth.federatedSignIn({
-                        provider: CognitoHostedUIIdentityProvider.Google
-                    })
-                }
-            >
-                Sign in with Google
-            </button>
-        </UsersLayout>
-    );
+    return <LoginContent />;
 };
 
 export default LoginPage;
