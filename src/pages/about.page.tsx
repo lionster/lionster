@@ -1,8 +1,13 @@
 import {FunctionComponent} from 'react';
 import AboutContent from '../components/about/AboutContent';
+import {PublicLayout} from '../components/pages/PublicLayout';
 
 const AboutPage: FunctionComponent = (props) => {
-    return <AboutContent />;
+    return (
+        <PublicLayout>
+            <AboutContent />
+        </PublicLayout>
+    );
 };
 
 export default AboutPage;

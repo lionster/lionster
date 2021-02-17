@@ -1,11 +1,13 @@
-import {LayoutComponent} from '../../../components/layouts';
+import {FunctionComponent} from 'react';
 import {BooksCreateContent} from '../../../components/pages/app/books/BooksCreateContent';
 import {BooksLayout} from '../../../components/pages/app/books/BooksLayout';
 
-const BooksCreatePage: LayoutComponent = () => {
-    return <BooksCreateContent />;
+const BooksCreatePage: FunctionComponent = () => {
+    return (
+        <BooksLayout>
+            <BooksCreateContent />
+        </BooksLayout>
+    );
 };
-
-BooksCreatePage.layoutComponent = BooksLayout;
 
 export default BooksCreatePage;

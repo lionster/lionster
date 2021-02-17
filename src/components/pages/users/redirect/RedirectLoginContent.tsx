@@ -2,7 +2,6 @@ import {useRouter} from 'next/router';
 import {FunctionComponent} from 'react';
 import {useSession} from '../../../../hooks/users/useSession';
 import {useEffectAsync} from '../../../../hooks/utils';
-import {UsersLayout} from '../UsersLayout';
 
 /**
  * @todo This component is temp, and taking the place of a router guard.
@@ -17,9 +16,5 @@ export const RedirectLoginContent: FunctionComponent = () => {
         }
     }, [session]);
 
-    return (
-        <UsersLayout>
-            <div>We're preparing your workspace. One moment...</div>
-        </UsersLayout>
-    );
+    return <div>We're preparing your workspace. One moment...</div>;
 };
