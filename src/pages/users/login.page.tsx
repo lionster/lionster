@@ -1,7 +1,7 @@
 import {FunctionComponent} from 'react';
-import {PublicLayout} from '../../components/pages/PublicLayout';
+import {PublicLayout} from '../../components/pages/layouts/PublicLayout';
 import {LoginContent} from '../../components/pages/users/LoginContent';
-import {UsersLayout} from '../../components/pages/users/UsersLayout';
+import {UsersLayout} from '../../components/pages/layouts/UsersLayout';
 
 const LoginPage: FunctionComponent = () => {
     return (

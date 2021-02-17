@@ -1,7 +1,7 @@
-import {SearchBar} from '../public';
-import {SideBar, SideBarAction} from '../side-bar';
-import {UserBar} from '../user-bar';
-import {DivAnd, DivComponent} from '../utils';
+import {SearchBar} from '../../public';
+import {SideBar, SideBarAction} from '../../side-bar';
+import {UserBar} from '../../user-bar';
+import {DivAnd, DivComponent} from '../../utils';
 
 const ACTIONS: SideBarAction[] = [
     {title: 'Start Now', route: '/boards/create', className: 'btn-primary'},

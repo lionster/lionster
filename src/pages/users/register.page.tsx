@@ -1,7 +1,7 @@
 import {FunctionComponent} from 'react';
-import {PublicLayout} from '../../components/pages/PublicLayout';
+import {PublicLayout} from '../../components/pages/layouts/PublicLayout';
 import {RegisterContent} from '../../components/pages/users/RegisterContent';
-import {UsersLayout} from '../../components/pages/users/UsersLayout';
+import {UsersLayout} from '../../components/pages/layouts/UsersLayout';
 
 const RegisterPage: FunctionComponent = () => {
     return (
