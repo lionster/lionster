@@ -1,6 +1,6 @@
-import {BookBar, FooterBar, ToolBar, UserBar, ZoomBar} from '../../../books';
-import {DivAnd, DivComponent} from '../../../utils';
-import {BookEntity} from '../../../../entities/book-entity';
+import {BookBar, FooterBar, ToolBar, UserBar, ZoomBar} from '../../books';
+import {DivAnd, DivComponent} from '../../utils';
+import {BookEntity} from '../../../entities/book-entity';
 
 export const BooksLayout: DivComponent = ({className, children}) => {
     const book: BookEntity = {

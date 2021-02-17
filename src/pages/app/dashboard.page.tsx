@@ -1,8 +1,8 @@
 import {withSSRContext} from 'aws-amplify';
 import {GetServerSideProps} from 'next';
 import {FunctionComponent} from 'react';
-import {DashboardContent} from '../../components/pages/app/dashboard/DashboardContent';
-import {DashboardLayout} from '../../components/pages/layouts/DashboardLayout';
+import {DashboardContent} from '../../components/contents/app/dashboard/DashboardContent';
+import {DashboardLayout} from '../../components/contents/layouts/DashboardLayout';
 
 export const getServerSideProps: GetServerSideProps = async ({
     req,

@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import {FaPlus} from 'react-icons/fa';
-import {DivAnd, DivComponent} from '../../../utils';
+import {DivAnd, DivComponent} from '../utils';
 
-export const BoardTemplates: DivComponent = ({className}) => {
+export const BooksTemplates: DivComponent = ({className}) => {
     return (
         <DivAnd className="flex" and={className}>
             <Link href="/app/books/create">

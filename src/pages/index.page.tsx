@@ -1,6 +1,6 @@
 import {FunctionComponent} from 'react';
-import HomeContent from '../components/home/HomeContent';
-import {PublicLayout} from '../components/pages/layouts/PublicLayout';
+import HomeContent from '../components/contents/HomeContent';
+import {PublicLayout} from '../components/contents/layouts/PublicLayout';
 
 const HomePage: FunctionComponent = () => {
     return (

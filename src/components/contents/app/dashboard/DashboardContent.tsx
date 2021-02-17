@@ -1,5 +1,5 @@
 import {FunctionComponent} from 'react';
-import {BooksList} from './BooksList';
+import {BooksList} from '../../../books';
 import {DashboardBar} from './DashboardBar';
 
 export const DashboardContent: FunctionComponent = () => {

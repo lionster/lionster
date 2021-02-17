@@ -1,6 +1,6 @@
 import {FunctionComponent} from 'react';
-import {PrivacyPolicyContent} from '../components/pages/privacy-policy/PrivacyPolicyContent';
-import {PublicLayout} from '../components/pages/layouts/PublicLayout';
+import {PrivacyPolicyContent} from '../components/contents/privacy-policy/PrivacyPolicyContent';
+import {PublicLayout} from '../components/contents/layouts/PublicLayout';
 
 const PrivacyPolicyPage: FunctionComponent = (props) => {
     return (

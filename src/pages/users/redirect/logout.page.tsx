@@ -1,7 +1,7 @@
 import {FunctionComponent} from 'react';
-import {PublicLayout} from '../../../components/pages/layouts/PublicLayout';
-import {RedirectLogoutContent} from '../../../components/pages/users/redirect/RedirectLogoutContent';
-import {UsersLayout} from '../../../components/pages/layouts/UsersLayout';
+import {PublicLayout} from '../../../components/contents/layouts/PublicLayout';
+import {RedirectLogoutContent} from '../../../components/contents/users/redirect/RedirectLogoutContent';
+import {UsersLayout} from '../../../components/contents/layouts/UsersLayout';
 
 const RedirectLogoutPage: FunctionComponent = () => {
     return (

@@ -1,6 +1,6 @@
 import {FunctionComponent} from 'react';
-import {BoardsContent} from '../components/pages/boards/BoardsContent';
-import {PublicLayout} from '../components/pages/layouts/PublicLayout';
+import {BoardsContent} from '../components/contents/boards/BoardsContent';
+import {PublicLayout} from '../components/contents/layouts/PublicLayout';
 
 const BoardsPage: FunctionComponent = () => {
     return (
