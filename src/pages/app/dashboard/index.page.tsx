@@ -5,7 +5,10 @@ import {BooksList} from './BooksList';
 import {DashboardBar} from './DashboardBar';
 import {DashboardLayout} from './DashboardLayout';
 
-export const getServerSideProps: GetServerSideProps = async ({req}) => {
+export const getServerSideProps: GetServerSideProps = async ({
+    req,
+    resolvedUrl
+}) => {
     try {
         const SRR = withSSRContext({req});
         const session = await SRR.Auth.currentSession();
@@ -17,7 +20,7 @@ export const getServerSideProps: GetServerSideProps = async ({req}) => {
         redirect: {
             permanent: false,
             destination: `/users/login?redirect=${encodeURIComponent(
-                '/app/dashboard'
+                resolvedUrl
             )}`
         }
     };
