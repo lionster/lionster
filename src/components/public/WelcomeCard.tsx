@@ -1,5 +1,5 @@
 import {environment} from '../../environment/environment';
-import {Logo} from '../logo';
+import {Logo} from '../branding';
 import {DivAnd, DivComponent} from '../utils';
 
 export const WelcomeCard: DivComponent = ({className}) => {

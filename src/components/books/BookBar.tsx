@@ -1,7 +1,6 @@
-import Link from 'next/link';
 import {FaStar} from 'react-icons/fa';
 import {BookEntity} from '../../entities/book-entity';
-import {environment} from '../../environment/environment';
+import {BrandName} from '../branding';
 import {DivAnd, DivComponent} from '../utils';
 
 export interface BookBarProps {
@@ -11,9 +10,7 @@ export interface BookBarProps {
 export const BookBar: DivComponent<BookBarProps> = ({className, book}) => {
     return (
         <DivAnd className="inline-flex align-middle" and={className}>
-            <Link href="/app/dashboard">
-                <a className="btn font-bold">{environment.brandName}</a>
-            </Link>
+            <BrandName className="brn" href={'/app/dashboard'} />
             <button className="btn">{book.title}</button>
             <button className="btn">
                 <FaStar />

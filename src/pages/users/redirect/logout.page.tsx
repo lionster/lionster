@@ -1,15 +1,12 @@
 import {FunctionComponent} from 'react';
-import {PublicLayout} from '../../../components/contents/layouts/PublicLayout';
-import {RedirectLogoutContent} from '../../../components/contents/users/redirect/RedirectLogoutContent';
 import {UsersLayout} from '../../../components/contents/layouts/UsersLayout';
+import {RedirectLogoutContent} from '../../../components/contents/users/redirect/RedirectLogoutContent';
 
 const RedirectLogoutPage: FunctionComponent = () => {
     return (
-        <PublicLayout>
-            <UsersLayout>
-                <RedirectLogoutContent />
-            </UsersLayout>
-        </PublicLayout>
+        <UsersLayout>
+            <RedirectLogoutContent />
+        </UsersLayout>
     );
 };
 
