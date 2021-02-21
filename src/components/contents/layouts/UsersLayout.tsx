@@ -39,7 +39,7 @@ export const UsersLayout: DivComponent<UsersLayoutProps> = ({
                 <BrandName className="text-3xl" />
                 {renderBack()}
             </div>
-            <div className="flex flex-col  max-w-screen-lg mx-auto">
+            <div className="flex flex-col max-w-sm w-full mx-auto">
                 {children}
             </div>
         </DivAnd>

@@ -23,6 +23,7 @@
         "autoprefixer": "^10.2.4",
         "aws-amplify": "^3.3.18",
         "bootstrap": "^4.6.0",
+        "formik": "^2.2.6",
         "next": "10.0.6",
         "postcss": "^8.2.4",
         "react": "17.0.1",
@@ -30,7 +31,8 @@
         "react-dom": "17.0.1",
         "react-icons": "^4.1.0",
         "sass": "^1.32.5",
-        "tailwindcss": "^2.0.2"
+        "tailwindcss": "^2.0.2",
+        "yup": "^0.32.9"
     },
     "devDependencies": {
         "@testing-library/dom": "^7.29.4",
