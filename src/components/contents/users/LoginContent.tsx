@@ -1,57 +1,21 @@
-import {useFormik} from 'formik';
-import {FunctionComponent} from 'react';
-import {Button, Form} from 'react-bootstrap';
-import * as yup from 'yup';
+import Link from 'next/link';
+import {AuthLoginForm} from '../../auth/AuthLoginForm/AuthLoginForm';
+import {AuthSocialLogins} from '../../auth/AuthSocialLogins/AuthSocialLogins';
+import {DivAnd, DivComponent} from '../../utils';
 
-const schema = yup.object().shape({
-    email: yup.string().email().required(),
-    password: yup.string().required()
-});
-
-export const LoginContent: FunctionComponent = () => {
-    const formik = useFormik({
-        validationSchema: schema,
-        initialValues: {email: '', password: ''},
-        onSubmit: (values) => console.log(values)
-    });
-
+export const LoginContent: DivComponent = ({className}) => {
     return (
-        <Form
-            noValidate
-            className="flex flex-col"
-            onSubmit={formik.handleSubmit}
-        >
-            <Form.Group controlId="validationEmail">
-                <Form.Control
-                    type="email"
-                    name="email"
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    isValid={
-                        formik.touched && formik.dirty && !formik.errors.email
-                    }
-                />
-                <Form.Control.Feedback>Looks good</Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group controlId="validationPassword">
-                <Form.Control
-                    type="password"
-                    name="password"
-                    value={formik.values.password}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    isValid={
-                        formik.touched &&
-                        formik.dirty &&
-                        !formik.errors.password
-                    }
-                />
-                <Form.Control.Feedback>Looks good</Form.Control.Feedback>
-            </Form.Group>
-            <Button variant="primary" type="submit">
-                Sign In
-            </Button>
-        </Form>
+        <DivAnd className="flex flex-col" and={className}>
+            <div className="text-lg font-bold mx-auto mb-3">Sign in</div>
+            <AuthSocialLogins />
+            <div className="flex mx-auto mb-3">OR</div>
+            <AuthLoginForm />
+            <Link href="/users/forgot">
+                <a className="mb-6">Forgot your password?</a>
+            </Link>
+            <Link href="/users/register">
+                <a className="btn btn-secondary">Create an account</a>
+            </Link>
+        </DivAnd>
     );
 };
