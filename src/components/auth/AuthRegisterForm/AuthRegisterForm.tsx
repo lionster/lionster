@@ -1,3 +1,4 @@
+import {Auth} from 'aws-amplify';
 import {useFormik} from 'formik';
 import {FunctionComponent} from 'react';
 import {Button, Form} from 'react-bootstrap';
@@ -22,12 +23,27 @@ export const AuthRegisterForm: FunctionComponent = () => {
             terms: false,
             news: false
         },
-        onSubmit: (values) => console.log(values)
+        onSubmit: async (
+            {username, email, password, terms, news},
+            formikHelpers
+        ) => {
+            try {
+                const result = await Auth.signUp({
+                    username,
+                    password,
+                    attributes: {email}
+                });
+                console.log(result);
+            } catch (err) {
+                console.error(err);
+            }
+        }
     });
     return (
         <Form
-            noValidate
             className="flex flex-col mb-6"
+            noValidate
+            validated={Boolean(formik.submitCount)}
             onSubmit={formik.handleSubmit}
         >
             <Form.Group controlId="validationUsername">
@@ -38,12 +54,14 @@ export const AuthRegisterForm: FunctionComponent = () => {
                     value={formik.values.username}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    isValid={
-                        formik.touched &&
-                        formik.dirty &&
-                        !formik.errors.username
+                    isInvalid={
+                        formik.submitCount && Boolean(formik.errors.username)
                     }
+                    required
                 />
+                <Form.Control.Feedback type="invalid">
+                    {formik.errors.username}
+                </Form.Control.Feedback>
             </Form.Group>
             <Form.Group controlId="validationEmail">
                 <Form.Label>Email</Form.Label>
@@ -53,10 +71,14 @@ export const AuthRegisterForm: FunctionComponent = () => {
                     value={formik.values.email}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    isValid={
-                        formik.touched && formik.dirty && !formik.errors.email
+                    isInvalid={
+                        formik.submitCount && Boolean(formik.errors.email)
                     }
+                    required
                 />
+                <Form.Control.Feedback type="invalid">
+                    {formik.errors.email}
+                </Form.Control.Feedback>
             </Form.Group>
             <Form.Group controlId="validationPassword">
                 <Form.Label>Password</Form.Label>
@@ -66,12 +88,14 @@ export const AuthRegisterForm: FunctionComponent = () => {
                     value={formik.values.password}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    isValid={
-                        formik.touched &&
-                        formik.dirty &&
-                        !formik.errors.password
+                    isInvalid={
+                        formik.submitCount && Boolean(formik.errors.password)
                     }
+                    required
                 />
+                <Form.Control.Feedback type="invalid">
+                    {formik.errors.password}
+                </Form.Control.Feedback>
             </Form.Group>
             <Form.Group controlId="validationTerms">
                 <Form.Check
@@ -80,10 +104,13 @@ export const AuthRegisterForm: FunctionComponent = () => {
                     checked={formik.values.terms}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    isValid={
-                        formik.touched && formik.dirty && !formik.errors.terms
+                    isInvalid={
+                        formik.submitCount && Boolean(formik.errors.terms)
                     }
                 />
+                <Form.Control.Feedback type="invalid">
+                    {formik.errors.terms}
+                </Form.Control.Feedback>
             </Form.Group>
             <Form.Group controlId="validationNews">
                 <Form.Check
@@ -92,10 +119,13 @@ export const AuthRegisterForm: FunctionComponent = () => {
                     checked={formik.values.news}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    isValid={
-                        formik.touched && formik.dirty && !formik.errors.news
+                    isInvalid={
+                        formik.submitCount && Boolean(formik.errors.news)
                     }
                 />
+                <Form.Control.Feedback type="invalid">
+                    {formik.errors.news}
+                </Form.Control.Feedback>
             </Form.Group>
             <Button variant="primary" type="submit">
                 Create Account

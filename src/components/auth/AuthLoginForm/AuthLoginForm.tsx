@@ -1,5 +1,6 @@
+import {Auth} from 'aws-amplify';
 import {useFormik} from 'formik';
-import {FunctionComponent} from 'react';
+import {FunctionComponent, useState} from 'react';
 import {Button, Form} from 'react-bootstrap';
 import * as yup from 'yup';
 
@@ -9,10 +10,24 @@ const schema = yup.object().shape({
 });
 
 export const AuthLoginForm: FunctionComponent = () => {
+    const [invalidSignIn, setInvalidSignIn] = useState(false);
+
     const formik = useFormik({
         validationSchema: schema,
         initialValues: {email: '', password: ''},
-        onSubmit: (values) => console.error(values)
+        onSubmit: async ({email: username, password}, formikHelpers) => {
+            try {
+                const user = await Auth.signIn({username, password});
+                console.log(user);
+            } catch (err) {
+                console.error(err);
+                if (err.name === 'UserNotFoundException') {
+                    setInvalidSignIn(true);
+                } else {
+                    throw err;
+                }
+            }
+        }
     });
 
     return (
@@ -56,6 +71,12 @@ export const AuthLoginForm: FunctionComponent = () => {
                     {formik.errors.password}
                 </Form.Control.Feedback>
             </Form.Group>
+            {invalidSignIn && (
+                <div className="text-danger mb-4">
+                    The email or password you entered is incorrect. Please try
+                    again.
+                </div>
+            )}
             <Button variant="primary" type="submit">
                 Sign In
             </Button>
