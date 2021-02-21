@@ -24,14 +24,14 @@ export const AuthRegisterForm: FunctionComponent = () => {
             news: false
         },
         onSubmit: async (
-            {username, email, password, terms, news},
+            {username: name, email: username, password, terms, news},
             formikHelpers
         ) => {
             try {
                 const result = await Auth.signUp({
                     username,
                     password,
-                    attributes: {email}
+                    attributes: {name, picture: ''}
                 });
                 console.log(result);
             } catch (err) {

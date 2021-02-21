@@ -1,7 +1,7 @@
 {
     "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "lionst128bc666",
+    "resourceNameTruncated": "lionst56f6470e",
     "userPoolName": "lionster",
     "autoVerifiedAttributes": ["email"],
     "mfaConfiguration": "OFF",
@@ -22,9 +22,9 @@
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [],
     "userpoolClientReadAttributes": [],
-    "userpoolClientLambdaRole": "lionst128bc666_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "lionst56f6470e_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "128bc666",
+    "sharedId": "56f6470e",
     "resourceName": "lionster",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
