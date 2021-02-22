@@ -1,19 +1,30 @@
 import {Auth} from 'aws-amplify';
 import {useFormik} from 'formik';
+import Link from 'next/link';
+import {useRouter} from 'next/router';
 import {FunctionComponent} from 'react';
 import {Button, Form} from 'react-bootstrap';
 import * as yup from 'yup';
+import {environment} from '../../../environment/environment';
 
 const schema = yup.object().shape({
-    username: yup.string().required(),
-    email: yup.string().email().required(),
-    password: yup.string().required(),
+    username: yup.string().required('Name is required.'),
+    email: yup.string().email().required('Email is required.'),
+    password: yup
+        .string()
+        .required('Password is required.')
+        .matches(
+            /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}$/,
+            'Must Contain 8 Characters, One Uppercase, One Lowercase, and One Number'
+        ),
     // @todo there is a way to make it required and also true
-    terms: yup.boolean().required(),
+    terms: yup.boolean().required('Must accept terms and conditions.'),
     news: yup.boolean()
 });
 
 export const AuthRegisterForm: FunctionComponent = () => {
+    const router = useRouter();
+
     const formik = useFormik({
         validationSchema: schema,
         initialValues: {
@@ -33,12 +44,30 @@ export const AuthRegisterForm: FunctionComponent = () => {
                     password,
                     attributes: {name, picture: ''}
                 });
-                console.log(result);
+                await router.push('/users/confirm');
             } catch (err) {
                 console.error(err);
+                throw err;
             }
         }
     });
+
+    const termsLabel = (
+        <span>
+            I agree to our{' '}
+            <Link href="/privacy-policy/">
+                <a>Terms and Privacy Policy</a>
+            </Link>
+            .
+        </span>
+    );
+
+    const newsLabel = (
+        <span>
+            I agree to receive {environment.brandName} news and updates.
+        </span>
+    );
+
     return (
         <Form
             className="flex flex-col mb-6"
@@ -54,9 +83,9 @@ export const AuthRegisterForm: FunctionComponent = () => {
                     value={formik.values.username}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    isInvalid={
-                        formik.submitCount && Boolean(formik.errors.username)
-                    }
+                    isInvalid={Boolean(
+                        formik.submitCount && formik.errors.username
+                    )}
                     required
                 />
                 <Form.Control.Feedback type="invalid">
@@ -71,9 +100,9 @@ export const AuthRegisterForm: FunctionComponent = () => {
                     value={formik.values.email}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    isInvalid={
-                        formik.submitCount && Boolean(formik.errors.email)
-                    }
+                    isInvalid={Boolean(
+                        formik.submitCount && formik.errors.email
+                    )}
                     required
                 />
                 <Form.Control.Feedback type="invalid">
@@ -88,9 +117,9 @@ export const AuthRegisterForm: FunctionComponent = () => {
                     value={formik.values.password}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    isInvalid={
-                        formik.submitCount && Boolean(formik.errors.password)
-                    }
+                    isInvalid={Boolean(
+                        formik.submitCount && formik.errors.password
+                    )}
                     required
                 />
                 <Form.Control.Feedback type="invalid">
@@ -100,13 +129,13 @@ export const AuthRegisterForm: FunctionComponent = () => {
             <Form.Group controlId="validationTerms">
                 <Form.Check
                     name="terms"
-                    label="I agree to our Terms and Privacy Policy."
+                    label={termsLabel}
                     checked={formik.values.terms}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    isInvalid={
-                        formik.submitCount && Boolean(formik.errors.terms)
-                    }
+                    isInvalid={Boolean(
+                        formik.submitCount && formik.errors.terms
+                    )}
                 />
                 <Form.Control.Feedback type="invalid">
                     {formik.errors.terms}
@@ -115,18 +144,19 @@ export const AuthRegisterForm: FunctionComponent = () => {
             <Form.Group controlId="validationNews">
                 <Form.Check
                     name="news"
-                    label="I agree to receive TensorShare news and updates."
+                    label={newsLabel}
                     checked={formik.values.news}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    isInvalid={
-                        formik.submitCount && Boolean(formik.errors.news)
-                    }
+                    isInvalid={Boolean(
+                        formik.submitCount && formik.errors.news
+                    )}
                 />
                 <Form.Control.Feedback type="invalid">
                     {formik.errors.news}
                 </Form.Control.Feedback>
             </Form.Group>
+
             <Button variant="primary" type="submit">
                 Create Account
             </Button>

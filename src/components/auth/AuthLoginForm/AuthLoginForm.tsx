@@ -5,8 +5,8 @@ import {Button, Form} from 'react-bootstrap';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
-    email: yup.string().email().required(),
-    password: yup.string().required()
+    email: yup.string().email().required('Email is required.'),
+    password: yup.string().required('Password is required.')
 });
 
 export const AuthLoginForm: FunctionComponent = () => {
