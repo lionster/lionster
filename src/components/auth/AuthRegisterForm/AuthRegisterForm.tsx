@@ -2,11 +2,11 @@ import {Auth} from 'aws-amplify';
 import {useFormik} from 'formik';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
-import {useSnackbar} from 'notistack';
 import {FunctionComponent} from 'react';
 import {Button, Form} from 'react-bootstrap';
 import * as yup from 'yup';
 import {environment} from '../../../environment/environment';
+import {usePromise} from '../../../hooks/utils/usePromise';
 
 const schema = yup.object().shape({
     username: yup.string().required('Name is required.'),
@@ -23,42 +23,31 @@ const schema = yup.object().shape({
     news: yup.boolean()
 });
 
+const INITIAL_VALUES = {
+    username: '',
+    email: '',
+    password: '',
+    terms: false,
+    news: false
+};
+
 export const AuthRegisterForm: FunctionComponent = () => {
     const router = useRouter();
-    const {enqueueSnackbar, closeSnackbar} = useSnackbar();
+    const submit = usePromise(
+        async ({username: name, email: username, password, terms, news}) => {
+            await Auth.signUp({
+                username,
+                password,
+                attributes: {name, picture: ''}
+            });
+            await router.push('/users/confirm');
+        }
+    );
 
     const formik = useFormik({
         validationSchema: schema,
-        initialValues: {
-            username: '',
-            email: '',
-            password: '',
-            terms: false,
-            news: false
-        },
-        onSubmit: async (
-            {username: name, email: username, password, terms, news},
-            formikHelpers
-        ) => {
-            try {
-                const result = await Auth.signUp({
-                    username,
-                    password,
-                    attributes: {name, picture: ''}
-                });
-                await router.push('/users/confirm');
-            } catch (err) {
-                enqueueSnackbar(err.message || 'An unhandled error', {
-                    variant: 'error',
-                    persist: true,
-                    action: (key) => (
-                        <button onClick={() => closeSnackbar(key)}>
-                            Dismiss
-                        </button>
-                    )
-                });
-            }
-        }
+        initialValues: INITIAL_VALUES,
+        onSubmit: submit
     });
 
     const termsLabel = (
