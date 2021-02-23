@@ -95,3 +95,9 @@ form.was-validated .invalid-feedback {
     background-clip: padding-box;
     border: 1px solid transparent;
 }
+
+.MuiFormHelperText-contained {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0.25rem;
+}
