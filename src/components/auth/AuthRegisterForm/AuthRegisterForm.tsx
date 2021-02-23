@@ -48,11 +48,15 @@ export const AuthRegisterForm: FunctionComponent = () => {
                 });
                 await router.push('/users/confirm');
             } catch (err) {
-                console.error(err);
                 enqueueSnackbar(err.message || 'An unhandled error', {
-                    variant: 'error'
+                    variant: 'error',
+                    persist: true,
+                    action: (key) => (
+                        <button onClick={() => closeSnackbar(key)}>
+                            Dismiss
+                        </button>
+                    )
                 });
-                throw err;
             }
         }
     });
