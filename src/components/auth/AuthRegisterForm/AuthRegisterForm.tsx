@@ -2,6 +2,7 @@ import {Auth} from 'aws-amplify';
 import {useFormik} from 'formik';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
+import {useSnackbar} from 'notistack';
 import {FunctionComponent} from 'react';
 import {Button, Form} from 'react-bootstrap';
 import * as yup from 'yup';
@@ -24,6 +25,7 @@ const schema = yup.object().shape({
 
 export const AuthRegisterForm: FunctionComponent = () => {
     const router = useRouter();
+    const {enqueueSnackbar, closeSnackbar} = useSnackbar();
 
     const formik = useFormik({
         validationSchema: schema,
@@ -47,6 +49,9 @@ export const AuthRegisterForm: FunctionComponent = () => {
                 await router.push('/users/confirm');
             } catch (err) {
                 console.error(err);
+                enqueueSnackbar(err.message || 'An unhandled error', {
+                    variant: 'error'
+                });
                 throw err;
             }
         }
