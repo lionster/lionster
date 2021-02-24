@@ -140,7 +140,13 @@ export const AuthRegisterForm: FunctionComponent = () => {
                 label={newsLabel}
             />
 
-            <Button color="primary" type="submit" disabled={disabled}>
+            <Button
+                className="mt-4"
+                variant="contained"
+                color="primary"
+                type="submit"
+                disabled={disabled}
+            >
                 Create Account
             </Button>
         </form>

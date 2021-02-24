@@ -6,6 +6,13 @@
 @tailwind screens;
 @tailwind utilities;
 
+@layer base {
+    a:not(.MuiButtonBase-root),
+    a:not(.no-link) {
+        @apply text-blue-500 hover:text-blue-700;
+    }
+}
+
 html,
 body {
     display: block;
@@ -84,6 +91,7 @@ form.was-validated .invalid-feedback {
 .MuiFormControl-root {
     margin-bottom: 0.25rem !important;
 }
+
 .MuiFormHelperText-root {
     margin-left: 0 !important;
     margin-right: 0 !important;

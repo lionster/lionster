@@ -59,7 +59,12 @@ export const AuthLoginForm: FunctionComponent = () => {
                 helperText={formik.errors.password || ' '}
                 required
             />
-            <Button color="primary" type="submit" disabled={disabled}>
+            <Button
+                variant="contained"
+                color="primary"
+                type="submit"
+                disabled={disabled}
+            >
                 Sign In
             </Button>
         </form>

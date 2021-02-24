@@ -15,14 +15,7 @@ export const LoginContent: DivComponent = ({className}) => {
                 <a className="mb-6">Forgot your password?</a>
             </Link>
             <Link href="/users/register">
-                <Button
-                    variant="contained"
-                    color="primary"
-                    href="#contained-buttons"
-                    disableElevation
-                >
-                    Create an account
-                </Button>
+                <Button variant="contained">Create an account</Button>
             </Link>
         </DivAnd>
     );

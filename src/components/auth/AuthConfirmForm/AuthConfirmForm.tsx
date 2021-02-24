@@ -33,7 +33,12 @@ export const AuthConfirmForm: FunctionComponent = () => {
                 helperText={formik.errors.email || ' '}
                 required
             />
-            <Button color="primary" type="submit" disabled={disabled}>
+            <Button
+                variant="contained"
+                color="primary"
+                type="submit"
+                disabled={disabled}
+            >
                 Continue
             </Button>
         </form>

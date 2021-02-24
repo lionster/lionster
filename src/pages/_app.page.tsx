@@ -11,7 +11,7 @@ import '../config/config-amplify';
 const theme = createMuiTheme({
     props: {
         MuiButton: {
-            variant: 'contained',
+            variant: 'outlined',
             disableElevation: true
         },
         MuiTextField: {
