@@ -1,5 +1,5 @@
-@import "functions";
-@import "colors";
+@import 'functions';
+@import 'colors';
 
 // $body-bg: #F2F2F2;
 
@@ -9,6 +9,6 @@ $animation: $animation-speed ease-in-out;
 $animation-fast-speed: 150ms;
 $animation-fast: $animation-fast-speed ease-in-out;
 
-$input-btn-focus-width: 0;
-$input-btn-focus-box-shadow: none;
-$btn-focus-box-shadow: none;
+//$input-btn-focus-width: 0;
+//$input-btn-focus-box-shadow: none;
+//$btn-focus-box-shadow: none;

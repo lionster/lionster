@@ -8,7 +8,18 @@ import {FunctionComponent} from 'react';
 import 'styles/app.scss';
 import '../config/config-amplify';
 
-const theme = createMuiTheme();
+const theme = createMuiTheme({
+    props: {
+        MuiButton: {
+            variant: 'contained',
+            disableElevation: true
+        },
+        MuiTextField: {
+            variant: 'outlined',
+            size: 'small'
+        }
+    }
+});
 
 const AppPage: FunctionComponent<AppProps> = ({Component, pageProps}) => {
     return (

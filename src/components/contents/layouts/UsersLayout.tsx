@@ -1,3 +1,4 @@
+import {Button} from '@material-ui/core';
 import Link from 'next/link';
 import {BrandName} from '../../branding';
 import {DivAnd, DivComponent} from '../../utils';
@@ -21,13 +22,13 @@ export const UsersLayout: DivComponent<UsersLayoutProps> = ({
         if (backType === BackType.login) {
             return (
                 <Link href="/users/login">
-                    <a className="btn btn-outline-primary ml-auto">Sign in</a>
+                    <Button className="ml-auto">Sign in</Button>
                 </Link>
             );
         } else if (backType === BackType.register) {
             return (
                 <Link href="/users/register">
-                    <a className="btn btn-outline-primary ml-auto">Sign up</a>
+                    <Button className="ml-auto">Sign up</Button>
                 </Link>
             );
         }

@@ -1,3 +1,4 @@
+import {Button} from '@material-ui/core';
 import Link from 'next/link';
 import {useUser} from '../../hooks/users';
 import {DivComponent} from '../utils';
@@ -7,22 +8,16 @@ export const UserBar: DivComponent = ({className}) => {
     const anonymous = (
         <>
             <Link href="/users/register">
-                <a className="flex whitespace-nowrap ml-2 btn btn-primary">
-                    Sign Up
-                </a>
+                <Button className="ml-2">Sign Up</Button>
             </Link>
             <Link href="/users/login">
-                <a className="flex whitespace-nowrap ml-2 btn btn-secondary">
-                    Log In
-                </a>
+                <Button className="ml-2">Log in</Button>
             </Link>
         </>
     );
     const hasUser = (
         <Link href="/users/logout">
-            <a className="flex whitespace-nowrap ml-2 btn btn-secondary">
-                Log Out
-            </a>
+            <Button className="ml-2">Log out</Button>
         </Link>
     );
     return <div className={className}>{user.user ? hasUser : anonymous}</div>;

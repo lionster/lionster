@@ -1,8 +1,4 @@
 @import 'config';
-@import '~bootstrap/scss/root';
-@import '~bootstrap/scss/reboot';
-@import '~bootstrap/scss/type';
-
 @import 'social-buttons';
 
 @tailwind base;
@@ -40,18 +36,6 @@ body {
     height: 100%;
 }
 
-html {
-    &.dark {
-        @import 'bootstrap_dark';
-        @import 'bootstrap';
-    }
-
-    &:not(.dark) {
-        @import 'bootstrap_light';
-        @import 'bootstrap';
-    }
-}
-
 ul {
     padding: 0;
     margin: 0;
@@ -66,8 +50,8 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-    -webkit-text-fill-color: $body-color;
-    -webkit-box-shadow: 0 0 0 1000px $body-bg inset;
+    //-webkit-text-fill-color: $body-color;
+    //-webkit-box-shadow: 0 0 0 1000px $body-bg inset;
 }
 
 form.was-validated .invalid-feedback {
@@ -85,10 +69,10 @@ form.was-validated .invalid-feedback {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: $gray-200;
-    background-clip: padding-box;
-    border: solid transparent;
-    border-radius: 10px;
+    //background-color: $gray-200;
+    //background-clip: padding-box;
+    //border: solid transparent;
+    //border-radius: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -96,8 +80,11 @@ form.was-validated .invalid-feedback {
     border: 1px solid transparent;
 }
 
-.MuiFormHelperText-contained {
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 0.25rem;
+// @todo might be able to fix this via the theme options
+.MuiFormControl-root {
+    margin-bottom: 0.25rem !important;
+}
+.MuiFormHelperText-root {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }

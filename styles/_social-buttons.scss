@@ -1,7 +1,7 @@
 @import 'config';
 
-@each $social, $value in $social-colors {
-    .btn-#{$social} {
-        @include button-variant($value, $value);
-    }
-}
+//@each $social, $value in $social-colors {
+//    .btn-#{$social} {
+//        @include button-variant($value, $value);
+//    }
+//}

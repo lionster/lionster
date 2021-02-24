@@ -35,42 +35,35 @@ export const AuthLoginForm: FunctionComponent = () => {
             onSubmit={formik.handleSubmit}
         >
             <TextField
+                id="test"
                 fullWidth
                 name="email"
                 label="Email"
-                variant="outlined"
-                size="small"
                 disabled={disabled}
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                error={formik.submitCount && Boolean(formik.errors.email)}
+                error={Boolean(formik.submitCount && formik.errors.email)}
                 helperText={formik.errors.email || ' '}
                 required
             />
+            {/*
             <TextField
                 fullWidth
                 className="mb-1"
                 type="password"
                 name="password"
                 label="Password"
-                variant="outlined"
-                size="small"
                 disabled={disabled}
                 value={formik.values.password}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                error={formik.submitCount && Boolean(formik.errors.password)}
+                error={Boolean(formik.submitCount && formik.errors.password)}
                 helperText={formik.errors.password || ' '}
                 required
             />
-            <Button
-                variant="contained"
-                color="primary"
-                type="submit"
-                disableElevation
-                disabled={disabled}
-            >
+*/}
+            <Button color="primary" type="submit" disabled={disabled}>
                 Sign In
             </Button>
         </form>

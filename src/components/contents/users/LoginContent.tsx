@@ -1,3 +1,4 @@
+import {Button} from '@material-ui/core';
 import Link from 'next/link';
 import {AuthLoginForm} from '../../auth/AuthLoginForm/AuthLoginForm';
 import {AuthSocialLogins} from '../../auth/AuthSocialLogins/AuthSocialLogins';
@@ -14,7 +15,14 @@ export const LoginContent: DivComponent = ({className}) => {
                 <a className="mb-6">Forgot your password?</a>
             </Link>
             <Link href="/users/register">
-                <a className="btn btn-secondary">Create an account</a>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    href="#contained-buttons"
+                    disableElevation
+                >
+                    Create an account
+                </Button>
             </Link>
         </DivAnd>
     );
