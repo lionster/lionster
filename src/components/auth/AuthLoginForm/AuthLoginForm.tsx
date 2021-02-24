@@ -12,7 +12,6 @@ const schema = yup.object().shape({
 
 export const AuthLoginForm: FunctionComponent = () => {
     const [disabled, setDisabled] = useState(false);
-
     const submit = usePromise(async ({email: username, password}) => {
         try {
             setDisabled(true);
@@ -35,7 +34,6 @@ export const AuthLoginForm: FunctionComponent = () => {
             onSubmit={formik.handleSubmit}
         >
             <TextField
-                id="test"
                 fullWidth
                 name="email"
                 label="Email"
@@ -47,7 +45,6 @@ export const AuthLoginForm: FunctionComponent = () => {
                 helperText={formik.errors.email || ' '}
                 required
             />
-            {/*
             <TextField
                 fullWidth
                 className="mb-1"
@@ -62,7 +59,6 @@ export const AuthLoginForm: FunctionComponent = () => {
                 helperText={formik.errors.password || ' '}
                 required
             />
-*/}
             <Button color="primary" type="submit" disabled={disabled}>
                 Sign In
             </Button>

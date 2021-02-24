@@ -1,6 +1,6 @@
+import {Button, TextField} from '@material-ui/core';
 import {useFormik} from 'formik';
-import {FunctionComponent} from 'react';
-import {Button, Form} from 'react-bootstrap';
+import {FunctionComponent, useState} from 'react';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -8,33 +8,34 @@ const schema = yup.object().shape({
 });
 
 export const AuthConfirmForm: FunctionComponent = () => {
+    const [disabled, setDisabled] = useState(false);
     const formik = useFormik({
         validationSchema: schema,
         initialValues: {email: ''},
         onSubmit: (values) => console.log(values)
     });
     return (
-        <Form
+        <form
             noValidate
             className="flex flex-col mb-6"
             onSubmit={formik.handleSubmit}
         >
-            <Form.Group controlId="validationEmail">
-                <Form.Label>Email you're using</Form.Label>
-                <Form.Control
-                    type="email"
-                    name="email"
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    isValid={
-                        formik.touched && formik.dirty && !formik.errors.email
-                    }
-                />
-            </Form.Group>
-            <Button variant="primary" type="submit">
+            <TextField
+                fullWidth
+                type="email"
+                name="email"
+                label="Email"
+                disabled={disabled}
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={Boolean(formik.submitCount && formik.errors.email)}
+                helperText={formik.errors.email || ' '}
+                required
+            />
+            <Button color="primary" type="submit" disabled={disabled}>
                 Continue
             </Button>
-        </Form>
+        </form>
     );
 };

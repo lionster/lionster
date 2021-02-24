@@ -1,9 +1,9 @@
+import {Button, Checkbox, FormControlLabel, TextField} from '@material-ui/core';
 import {Auth} from 'aws-amplify';
 import {useFormik} from 'formik';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
-import {FunctionComponent} from 'react';
-import {Button, Form} from 'react-bootstrap';
+import {FunctionComponent, useState} from 'react';
 import * as yup from 'yup';
 import {environment} from '../../../environment/environment';
 import {usePromise} from '../../../hooks/utils/usePromise';
@@ -32,6 +32,7 @@ const INITIAL_VALUES = {
 };
 
 export const AuthRegisterForm: FunctionComponent = () => {
+    const [disabled, setDisabled] = useState(false);
     const router = useRouter();
     const submit = usePromise(
         async ({username: name, email: username, password, terms, news}) => {
@@ -67,97 +68,81 @@ export const AuthRegisterForm: FunctionComponent = () => {
     );
 
     return (
-        <Form
+        <form
             className="flex flex-col mb-6"
             noValidate
-            validated={Boolean(formik.submitCount)}
             onSubmit={formik.handleSubmit}
         >
-            <Form.Group controlId="validationUsername">
-                <Form.Label>Name</Form.Label>
-                <Form.Control
-                    type="username"
-                    name="username"
-                    value={formik.values.username}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    isInvalid={Boolean(
-                        formik.submitCount && formik.errors.username
-                    )}
-                    required
-                />
-                <Form.Control.Feedback type="invalid">
-                    {formik.errors.username}
-                </Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group controlId="validationEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                    type="email"
-                    name="email"
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    isInvalid={Boolean(
-                        formik.submitCount && formik.errors.email
-                    )}
-                    required
-                />
-                <Form.Control.Feedback type="invalid">
-                    {formik.errors.email}
-                </Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group controlId="validationPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                    type="password"
-                    name="password"
-                    value={formik.values.password}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    isInvalid={Boolean(
-                        formik.submitCount && formik.errors.password
-                    )}
-                    required
-                />
-                <Form.Control.Feedback type="invalid">
-                    {formik.errors.password}
-                </Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group controlId="validationTerms">
-                <Form.Check
-                    name="terms"
-                    label={termsLabel}
-                    checked={formik.values.terms}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    isInvalid={Boolean(
-                        formik.submitCount && formik.errors.terms
-                    )}
-                />
-                <Form.Control.Feedback type="invalid">
-                    {formik.errors.terms}
-                </Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group controlId="validationNews">
-                <Form.Check
-                    name="news"
-                    label={newsLabel}
-                    checked={formik.values.news}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    isInvalid={Boolean(
-                        formik.submitCount && formik.errors.news
-                    )}
-                />
-                <Form.Control.Feedback type="invalid">
-                    {formik.errors.news}
-                </Form.Control.Feedback>
-            </Form.Group>
+            <TextField
+                fullWidth
+                name="username"
+                label="Username"
+                disabled={disabled}
+                value={formik.values.username}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={Boolean(formik.submitCount && formik.errors.username)}
+                helperText={formik.errors.username || ' '}
+                required
+            />
 
-            <Button variant="primary" type="submit">
+            <TextField
+                fullWidth
+                type="email"
+                name="email"
+                label="Email"
+                disabled={disabled}
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={Boolean(formik.submitCount && formik.errors.email)}
+                helperText={formik.errors.email || ' '}
+                required
+            />
+
+            <TextField
+                fullWidth
+                type="password"
+                name="password"
+                label="Password"
+                disabled={disabled}
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={Boolean(formik.submitCount && formik.errors.password)}
+                helperText={formik.errors.password || ' '}
+                required
+            />
+
+            <FormControlLabel
+                control={
+                    <Checkbox
+                        name="terms"
+                        checked={formik.values.terms}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        disabled={disabled}
+                    />
+                }
+                label={termsLabel}
+            />
+
+            <FormControlLabel
+                control={
+                    <Checkbox
+                        name="news"
+                        checked={formik.values.news}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        disabled={disabled}
+                    />
+                }
+                label={newsLabel}
+            />
+
+            <Button color="primary" type="submit" disabled={disabled}>
                 Create Account
             </Button>
-        </Form>
+        </form>
     );
 };
