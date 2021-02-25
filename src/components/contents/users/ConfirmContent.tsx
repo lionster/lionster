@@ -1,30 +1,22 @@
-import Link from 'next/link';
+import {useRecoilState} from 'recoil';
+import {ConfirmEmailAtom} from '../../auth/atoms/confirm-email-atom';
 import {AuthConfirmForm} from '../../auth/AuthConfirmForm/AuthConfirmForm';
 import {DivAnd, DivComponent} from '../../utils';
 
-export interface ConfirmContentProps {
-    email: string;
-}
+export const ConfirmContent: DivComponent = ({className}) => {
+    const [confirmEmail] = useRecoilState(ConfirmEmailAtom);
 
-export const ConfirmContent: DivComponent<ConfirmContentProps> = ({
-    className,
-    email
-}) => {
     return (
         <DivAnd className="flex flex-col" and={className}>
             <div className="text-lg font-bold mx-auto mb-3">
                 Check your email
             </div>
-            <div>
+            <div className="mb-6">
                 We've sent you a confirmation code to{' '}
-                <span className="font-bold">{email}</span>. Please enter it
-                below to confirm your email address.
+                <span className="font-bold">{confirmEmail}</span>. Please enter
+                it below to confirm your email address.
             </div>
             <AuthConfirmForm />
-
-            <Link href="/users/login">
-                <a>Send code again</a>
-            </Link>
         </DivAnd>
     );
 };

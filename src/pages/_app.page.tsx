@@ -5,6 +5,7 @@ import {
 import {AppProps} from 'next/app';
 import {SnackbarProvider} from 'notistack';
 import {FunctionComponent} from 'react';
+import {RecoilRoot} from 'recoil';
 import 'styles/app.scss';
 import '../config/config-amplify';
 
@@ -23,17 +24,19 @@ const theme = createMuiTheme({
 
 const AppPage: FunctionComponent<AppProps> = ({Component, pageProps}) => {
     return (
-        <ThemeProvider theme={theme}>
-            <SnackbarProvider
-                maxSnack={3}
-                anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'center'
-                }}
-            >
-                <Component {...pageProps} />
-            </SnackbarProvider>
-        </ThemeProvider>
+        <RecoilRoot>
+            <ThemeProvider theme={theme}>
+                <SnackbarProvider
+                    maxSnack={3}
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'center'
+                    }}
+                >
+                    <Component {...pageProps} />
+                </SnackbarProvider>
+            </ThemeProvider>
+        </RecoilRoot>
     );
 };
 

@@ -1,9 +1,13 @@
 import {Button, TextField} from '@material-ui/core';
 import {Auth} from 'aws-amplify';
 import {useFormik} from 'formik';
+import {useRouter} from 'next/router';
 import {FunctionComponent, useState} from 'react';
+import {useRecoilState} from 'recoil';
 import * as yup from 'yup';
 import {usePromise} from '../../../hooks/utils/usePromise';
+import {useToast} from '../../../hooks/utils/useToast';
+import {ConfirmEmailAtom} from '../atoms/confirm-email-atom';
 
 const schema = yup.object().shape({
     email: yup.string().email().required('Email is required.'),
@@ -11,11 +15,22 @@ const schema = yup.object().shape({
 });
 
 export const AuthLoginForm: FunctionComponent = () => {
+    const [confirmEmail, setConfirmEmail] = useRecoilState(ConfirmEmailAtom);
     const [disabled, setDisabled] = useState(false);
+    const toast = useToast('warning', true);
+    const router = useRouter();
     const submit = usePromise(async ({email: username, password}) => {
         try {
             setDisabled(true);
             const user = await Auth.signIn({username, password});
+        } catch (err) {
+            if (err.code === 'UserNotConfirmedException') {
+                toast('Please confirm your email address.');
+                setConfirmEmail(username);
+                await router.push('/users/confirm');
+            } else {
+                throw err;
+            }
         } finally {
             setDisabled(false);
         }

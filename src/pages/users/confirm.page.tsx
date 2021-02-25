@@ -15,7 +15,7 @@ const ConfirmPage: FunctionComponent = () => {
 
     return (
         <UsersLayout backType={BackType.login}>
-            <ConfirmContent email={'john@example.com'} />
+            <ConfirmContent />
         </UsersLayout>
     );
 };
