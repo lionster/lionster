@@ -14,14 +14,6 @@ const schema = yup.object().shape({
     code: yup.number().required()
 });
 
-const condition = true;
-
-if (condition) {
-    // do something specific
-} else {
-    // for everything else do this
-}
-
 export const AuthConfirmForm: FunctionComponent = () => {
     const [confirmEmail] = useRecoilState(ConfirmEmailAtom);
     const [disabled, setDisabled] = useState(!confirmEmail);
