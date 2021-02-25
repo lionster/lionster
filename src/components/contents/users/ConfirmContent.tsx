@@ -16,7 +16,7 @@ export const ConfirmContent: DivComponent<ConfirmContentProps> = ({
                 Check your email
             </div>
             <div>
-                We've send you a confirmation code to{' '}
+                We've sent you a confirmation code to{' '}
                 <span className="font-bold">{email}</span>. Please enter it
                 below to confirm your email address.
             </div>
