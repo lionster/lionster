@@ -11,7 +11,7 @@ export const AuthLogout: FunctionComponent = () => {
     });
 
     const signingOut = <div>Please wait, we are signing you out.</div>;
-    const signedOut = <div>You've been successfully signed out.</div>;
+    const signedOut = <div>You&apos;ve been successfully signed out.</div>;
 
     return <div>{user.user ? signingOut : signedOut}</div>;
 };

@@ -12,7 +12,7 @@ export const AuthConfirm: DivComponent = ({className}) => {
                 Check your email
             </div>
             <div className="mb-6">
-                We've sent you a confirmation code to{' '}
+                We&apos;ve sent you a confirmation code to{' '}
                 <span className="font-bold">{confirmEmail}</span>. Please enter
                 it below to confirm your email address.
             </div>

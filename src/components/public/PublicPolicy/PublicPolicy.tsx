@@ -10,22 +10,22 @@ export const PublicPolicy: FunctionComponent = (props) => {
                 <h2>Information that is gathered from visitors</h2>
                 <p>
                     In common with other websites, log files are stored on the
-                    web server saving details such as the visitor's IP address,
-                    browser type, referring page and time of visit.
+                    web server saving details such as the visitor&apos;s IP
+                    address, browser type, referring page and time of visit.
                 </p>
                 <p>
                     Cookies may be used to remember visitor preferences when
                     interacting with the website.
                 </p>
                 <p>
-                    Where registration is required, the visitor's email and a
-                    username will be stored on the server.
+                    Where registration is required, the visitor&apos;s email and
+                    a username will be stored on the server.
                 </p>
                 <h2>How the Information is used</h2>
                 <p>
-                    The information is used to enhance the visitor's experience
-                    when using the website to display personalised content and
-                    possibly advertising.
+                    The information is used to enhance the visitor&apos;s
+                    experience when using the website to display personalised
+                    content and possibly advertising.
                 </p>
                 <p>
                     E-mail addresses will not be sold, rented or leased to 3rd
@@ -62,8 +62,8 @@ export const PublicPolicy: FunctionComponent = (props) => {
                     Google, as a third party vendor, uses cookies to serve ads.
                 </p>
                 <p>
-                    Google's use of the DART cookie enables it to serve ads to
-                    visitors based on their visit to sites they visit on the
+                    Google&apos;s use of the DART cookie enables it to serve ads
+                    to visitors based on their visit to sites they visit on the
                     Internet.
                 </p>
                 <p>

@@ -16,5 +16,5 @@ export const AuthRedirectLogin: FunctionComponent = () => {
         }
     }, [session]);
 
-    return <div>We're preparing your workspace. One moment...</div>;
+    return <div>We&apos;re preparing your workspace. One moment...</div>;
 };
