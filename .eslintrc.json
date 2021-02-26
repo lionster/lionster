@@ -17,7 +17,8 @@
         "react/prop-types": "off",
         "react/react-in-jsx-scope": "off",
         "react/jsx-first-prop-new-line": [1, "multiline"],
-        "react/jsx-closing-bracket-location": [2, "tag-aligned"]
+        "react/jsx-closing-bracket-location": [2, "tag-aligned"],
+        "react-hooks/exhaustive-deps": "off"
     },
     "globals": {
         "React": "writable"

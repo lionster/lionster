@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {DependencyList, useCallback} from 'react';
 import {useToast} from './useToast';
 

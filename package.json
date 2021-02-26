@@ -9,7 +9,7 @@
         "start": "next start",
         "test": "jest --coverage=true --ci",
         "test:watch": "jest --coverage=true --watch",
-        "lint": "eslint --ext .ts,.tsx",
+        "lint": "eslint --ext .ts,.tsx src",
         "eslint": "eslint",
         "pretty:staged": "pretty-quick --staged",
         "pretty:check": "pretty-quick --check",
