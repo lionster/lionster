@@ -5,9 +5,9 @@ import {useRouter} from 'next/router';
 import {FunctionComponent, useState} from 'react';
 import {useRecoilState} from 'recoil';
 import * as yup from 'yup';
-import {usePromise} from '../../../hooks/utils/usePromise';
-import {useToast} from '../../../hooks/utils/useToast';
-import {AtomAuthEmail} from '../atoms/atom-auth-email';
+import {usePromise} from '../../hooks/utils/usePromise';
+import {useToast} from '../../hooks/utils/useToast';
+import {AtomAuthEmail} from '../../../atoms/atom-auth-email';
 
 const schema = yup.object().shape({
     email: yup.string().email().required('Email is required.'),
@@ -23,6 +23,7 @@ export const AuthLoginForm: FunctionComponent = () => {
         try {
             setDisabled(true);
             const user = await Auth.signIn({username, password});
+            await router.push('/app/dashboard');
         } catch (err) {
             if (err.code === 'UserNotConfirmedException') {
                 toast('Please confirm your email address.');

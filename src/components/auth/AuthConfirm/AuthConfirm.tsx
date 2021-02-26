@@ -1,5 +1,5 @@
 import {useRecoilState} from 'recoil';
-import {AtomAuthEmail} from '../atoms/atom-auth-email';
+import {AtomAuthEmail} from '../../../atoms/atom-auth-email';
 import {AuthConfirmForm} from '../AuthConfirmForm/AuthConfirmForm';
 import {DivAnd, DivComponent} from '../../utils';
 

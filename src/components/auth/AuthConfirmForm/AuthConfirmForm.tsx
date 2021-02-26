@@ -5,10 +5,10 @@ import {useRouter} from 'next/router';
 import {FunctionComponent, useState} from 'react';
 import {useRecoilState} from 'recoil';
 import * as yup from 'yup';
-import {useEffectAsync} from '../../../hooks/utils';
-import {usePromise} from '../../../hooks/utils/usePromise';
-import {useToast} from '../../../hooks/utils/useToast';
-import {AtomAuthEmail} from '../atoms/atom-auth-email';
+import {useEffectAsync} from '../../hooks/utils';
+import {usePromise} from '../../hooks/utils/usePromise';
+import {useToast} from '../../hooks/utils/useToast';
+import {AtomAuthEmail} from '../../../atoms/atom-auth-email';
 
 const schema = yup.object().shape({
     code: yup.number().required()

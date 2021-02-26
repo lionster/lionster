@@ -5,7 +5,7 @@ import {
     AuthLayout
 } from '../../components/auth/AuthLayout/AuthLayout';
 import {AuthConfirm} from '../../components/auth/AuthConfirm/AuthConfirm';
-import {useEffectAsync} from '../../hooks/utils';
+import {useEffectAsync} from '../../components/hooks/utils';
 
 const ConfirmPage: FunctionComponent = () => {
     useEffectAsync(async () => {

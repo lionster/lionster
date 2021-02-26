@@ -1,11 +1,11 @@
 import {FunctionComponent} from 'react';
-import HomeContent from '../components/contents/HomeContent';
-import {PublicLayout} from '../components/contents/layouts/PublicLayout';
+import PublicHome from '../components/public/PublicHome/PublicHome';
+import {PublicLayout} from '../components/public/PublicLayout/PublicLayout';
 
 const HomePage: FunctionComponent = () => {
     return (
         <PublicLayout>
-            <HomeContent />
+            <PublicHome />
         </PublicLayout>
     );
 };

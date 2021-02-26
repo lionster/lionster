@@ -7,8 +7,8 @@ import {FunctionComponent, useState} from 'react';
 import {useRecoilState} from 'recoil';
 import * as yup from 'yup';
 import {environment} from '../../../environment/environment';
-import {usePromise} from '../../../hooks/utils/usePromise';
-import {AtomAuthEmail} from '../atoms/atom-auth-email';
+import {usePromise} from '../../hooks/utils/usePromise';
+import {AtomAuthEmail} from '../../../atoms/atom-auth-email';
 
 const schema = yup.object().shape({
     username: yup.string().required('Name is required.'),

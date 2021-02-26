@@ -1,7 +1,7 @@
 import {Auth} from 'aws-amplify';
 import {FunctionComponent} from 'react';
-import {useUser} from '../../../hooks/users';
-import {useEffectAsync} from '../../../hooks/utils';
+import {useUser} from '../../hooks/users';
+import {useEffectAsync} from '../../hooks/utils';
 
 export const AuthLogout: FunctionComponent = () => {
     const user = useUser();

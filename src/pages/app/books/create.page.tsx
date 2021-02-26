@@ -1,12 +1,12 @@
 import {FunctionComponent} from 'react';
-import {BooksCreateContent} from '../../../components/contents/app/books/BooksCreateContent';
-import {BooksLayout} from '../../../components/contents/layouts/BooksLayout';
+import {BookCreate} from '../../../components/books/BookCreate/BookCreate';
+import {BookLayout} from '../../../components/books/BookLayout/BookLayout';
 
 const BooksCreatePage: FunctionComponent = () => {
     return (
-        <BooksLayout>
-            <BooksCreateContent />
-        </BooksLayout>
+        <BookLayout>
+            <BookCreate />
+        </BookLayout>
     );
 };
 

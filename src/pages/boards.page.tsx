@@ -1,11 +1,11 @@
 import {FunctionComponent} from 'react';
-import {BoardsContent} from '../components/contents/boards/BoardsContent';
-import {PublicLayout} from '../components/contents/layouts/PublicLayout';
+import {PublicBoards} from '../components/public/PublicBooks/PublicBoards';
+import {PublicLayout} from '../components/public/PublicLayout/PublicLayout';
 
 const BoardsPage: FunctionComponent = () => {
     return (
         <PublicLayout>
-            <BoardsContent />
+            <PublicBoards />
         </PublicLayout>
     );
 };
