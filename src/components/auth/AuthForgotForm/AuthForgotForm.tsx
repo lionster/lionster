@@ -2,6 +2,10 @@ import {Button, TextField} from '@material-ui/core';
 import {useFormik} from 'formik';
 import {FunctionComponent, useState} from 'react';
 import * as yup from 'yup';
+import {useRouter} from 'next/router';
+import {useToast} from '../../hooks/utils/useToast';
+import {usePromise} from '../../hooks/utils/usePromise';
+import {Auth} from 'aws-amplify';
 
 const schema = yup.object().shape({
     email: yup.string().email().required()
@@ -9,10 +13,21 @@ const schema = yup.object().shape({
 
 export const AuthForgotForm: FunctionComponent = () => {
     const [disabled, setDisabled] = useState(false);
+    const toast = useToast('warning', true);
+    const router = useRouter();
+    const submit = usePromise(async ({email: username}) => {
+        try {
+            setDisabled(true);
+            // const user = await Auth.signIn({username, password});
+            await router.push('/users/login');
+        } finally {
+            setDisabled(false);
+        }
+    });
     const formik = useFormik({
         validationSchema: schema,
         initialValues: {email: ''},
-        onSubmit: (values) => console.log(values)
+        onSubmit: submit
     });
     return (
         <form
