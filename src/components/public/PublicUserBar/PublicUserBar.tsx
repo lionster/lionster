@@ -1,6 +1,6 @@
 import {Button} from '@material-ui/core';
 import Link from 'next/link';
-import {useUser} from '../../hooks/users';
+import {useUser} from '../../hooks/users/useUser';
 import {DivComponent} from '../../utils';
 
 export const PublicUserBar: DivComponent = ({className}) => {
