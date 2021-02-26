@@ -1,4 +1,4 @@
-import {DivAnd, DivComponent} from '../../utils';
+import {DivAnd, DivComponent} from '../../utils/DivAnd';
 
 export const BookToolBar: DivComponent = ({className}) => {
     return (

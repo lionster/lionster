@@ -4,7 +4,7 @@ import {BookFooterBar} from '../BookFootBar/BookFooterBar';
 import {BookToolBar} from '../BookToolBar/BookToolBar';
 import {BookUserBar} from '../BookUserBar/BookUserBar';
 import {BookZoomBar} from '../BookZoomBar/BookZoomBar';
-import {DivAnd, DivComponent} from '../../utils';
+import {DivAnd, DivComponent} from '../../utils/DivAnd';
 
 export const BookLayout: DivComponent = ({className, children}) => {
     const book: BookEntity = {

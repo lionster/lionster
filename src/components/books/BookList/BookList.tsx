@@ -1,4 +1,4 @@
-import {DivAnd, DivComponent} from '../../utils';
+import {DivAnd, DivComponent} from '../../utils/DivAnd';
 import {BookTemplates} from '../BookTemplates/BookTemplates';
 
 export const BookList: DivComponent = ({className}) => {

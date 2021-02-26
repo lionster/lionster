@@ -2,7 +2,7 @@ import {
     PublicSideBar,
     PublicSideBarAction
 } from '../../public/PublicSideBar/PublicSideBar';
-import {DivAnd, DivComponent} from '../../utils';
+import {DivAnd, DivComponent} from '../../utils/DivAnd';
 
 const ACTIONS: PublicSideBarAction[] = [
     {title: 'Start Now', route: '/boards/create', className: 'btn-primary'},

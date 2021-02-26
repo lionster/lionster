@@ -1,6 +1,6 @@
 import {Button} from '@material-ui/core';
 import {FaBell, FaQuestionCircle, FaUser} from 'react-icons/fa';
-import {DivAnd, DivComponent} from '../../utils';
+import {DivAnd, DivComponent} from '../../utils/DivAnd';
 
 export const DashboardBar: DivComponent = ({className}) => {
     return (

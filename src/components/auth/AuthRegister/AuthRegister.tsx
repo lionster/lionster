@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import {AuthRegisterForm} from '../AuthRegisterForm/AuthRegisterForm';
 import {AuthSocialLogins} from '../AuthSocialLogins/AuthSocialLogins';
-import {DivAnd, DivComponent} from '../../utils';
+import {DivAnd, DivComponent} from '../../utils/DivAnd';
 
 export const AuthRegister: DivComponent = ({className}) => {
     return (

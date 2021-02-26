@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import {FaPlus} from 'react-icons/fa';
-import {DivAnd, DivComponent} from '../../utils';
+import {DivAnd, DivComponent} from '../../utils/DivAnd';
 
 export const BookTemplates: DivComponent = ({className}) => {
     return (

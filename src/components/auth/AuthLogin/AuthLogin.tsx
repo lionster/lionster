@@ -2,7 +2,7 @@ import {Button} from '@material-ui/core';
 import Link from 'next/link';
 import {AuthLoginForm} from '../AuthLoginForm/AuthLoginForm';
 import {AuthSocialLogins} from '../AuthSocialLogins/AuthSocialLogins';
-import {DivAnd, DivComponent} from '../../utils';
+import {DivAnd, DivComponent} from '../../utils/DivAnd';
 
 export const AuthLogin: DivComponent = ({className}) => {
     return (

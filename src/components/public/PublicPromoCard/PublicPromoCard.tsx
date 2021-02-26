@@ -1,6 +1,6 @@
 import React from 'react';
 import {FaSearch} from 'react-icons/fa';
-import {DivAnd, DivComponent} from '../../utils';
+import {DivAnd, DivComponent} from '../../utils/DivAnd';
 
 export interface PublicPromo {
     id: number;

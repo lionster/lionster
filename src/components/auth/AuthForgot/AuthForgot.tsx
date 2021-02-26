@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import {AuthForgotForm} from '../AuthForgotForm/AuthForgotForm';
-import {DivAnd, DivComponent} from '../../utils';
+import {DivAnd, DivComponent} from '../../utils/DivAnd';
 
 export const AuthForgot: DivComponent = ({className}) => {
     return (

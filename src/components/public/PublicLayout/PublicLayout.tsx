@@ -1,5 +1,5 @@
 import {PublicUserBar} from '../PublicUserBar/PublicUserBar';
-import {DivAnd, DivComponent} from '../../utils';
+import {DivAnd, DivComponent} from '../../utils/DivAnd';
 import {PublicSearchBar} from '../PublicSearchBar/PublicSearchBar';
 import {
     PublicSideBar,

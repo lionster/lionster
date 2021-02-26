@@ -1,6 +1,6 @@
 import {environment} from '../../../environment/environment';
 import {BrandLogo} from '../../brand/BrandLogo';
-import {DivAnd, DivComponent} from '../../utils';
+import {DivAnd, DivComponent} from '../../utils/DivAnd';
 
 export const PublicCard: DivComponent = ({className}) => {
     return (

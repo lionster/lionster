@@ -1,5 +1,5 @@
 import {BrandLogo} from '../../brand/BrandLogo';
-import {DivAnd, DivComponent} from '../../utils';
+import {DivAnd, DivComponent} from '../../utils/DivAnd';
 
 export const PublicTeamCard: DivComponent = ({className}) => {
     return (

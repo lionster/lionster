@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import {environment} from '../../environment/environment';
-import {DivAnd, DivComponent} from '../utils';
+import {DivAnd, DivComponent} from '../utils/DivAnd';
 
 export interface BrandNameProps {
     href?: string;

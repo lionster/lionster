@@ -1,7 +1,7 @@
 import {useRecoilState} from 'recoil';
 import {AtomAuthEmail} from '../../../atoms/atom-auth-email';
 import {AuthConfirmForm} from '../AuthConfirmForm/AuthConfirmForm';
-import {DivAnd, DivComponent} from '../../utils';
+import {DivAnd, DivComponent} from '../../utils/DivAnd';
 
 export const AuthConfirm: DivComponent = ({className}) => {
     const [confirmEmail] = useRecoilState(AtomAuthEmail);

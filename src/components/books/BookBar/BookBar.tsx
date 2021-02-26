@@ -1,7 +1,7 @@
 import {FaStar} from 'react-icons/fa';
 import {BookEntity} from '../../entities/book-entity';
 import {BrandName} from '../../brand/BrandName';
-import {DivAnd, DivComponent} from '../../utils';
+import {DivAnd, DivComponent} from '../../utils/DivAnd';
 
 export interface BookBarProps {
     book: BookEntity;

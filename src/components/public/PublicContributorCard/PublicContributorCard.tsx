@@ -1,5 +1,5 @@
 import {FaGithub} from 'react-icons/fa';
-import {DivAnd, DivComponent} from '../../utils';
+import {DivAnd, DivComponent} from '../../utils/DivAnd';
 
 export const PublicContributorCard: DivComponent = ({className}) => {
     return (

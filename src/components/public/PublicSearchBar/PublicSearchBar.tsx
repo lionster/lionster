@@ -1,5 +1,5 @@
 import {TextField} from '@material-ui/core';
-import {DivAnd, DivComponent} from '../../utils';
+import {DivAnd, DivComponent} from '../../utils/DivAnd';
 
 export const PublicSearchBar: DivComponent = ({className}) => {
     return (

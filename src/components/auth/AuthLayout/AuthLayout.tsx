@@ -1,7 +1,7 @@
 import {Button} from '@material-ui/core';
 import Link from 'next/link';
 import {BrandName} from '../../brand/BrandName';
-import {DivAnd, DivComponent} from '../../utils';
+import {DivAnd, DivComponent} from '../../utils/DivAnd';
 
 export enum BackType {
     none,
