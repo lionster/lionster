@@ -1,12 +1,12 @@
 import {FunctionComponent} from 'react';
-import {UsersLayout} from '../../components/contents/layouts/UsersLayout';
-import {LogoutContent} from '../../components/contents/users/LogoutContent';
+import {AuthLayout} from '../../components/auth/AuthLayout/AuthLayout';
+import {AuthLogout} from '../../components/auth/AuthLogout/AuthLogout';
 
 const LogoutPage: FunctionComponent = () => {
     return (
-        <UsersLayout>
-            <LogoutContent />
-        </UsersLayout>
+        <AuthLayout>
+            <AuthLogout />
+        </AuthLayout>
     );
 };
 

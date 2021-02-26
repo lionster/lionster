@@ -3,7 +3,7 @@ import {FunctionComponent} from 'react';
 import {useUser} from '../../../hooks/users';
 import {useEffectAsync} from '../../../hooks/utils';
 
-export const LogoutContent: FunctionComponent = () => {
+export const AuthLogout: FunctionComponent = () => {
     const user = useUser();
 
     useEffectAsync(async () => {

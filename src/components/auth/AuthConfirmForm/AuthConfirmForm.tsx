@@ -8,14 +8,14 @@ import * as yup from 'yup';
 import {useEffectAsync} from '../../../hooks/utils';
 import {usePromise} from '../../../hooks/utils/usePromise';
 import {useToast} from '../../../hooks/utils/useToast';
-import {ConfirmEmailAtom} from '../atoms/confirm-email-atom';
+import {AtomAuthEmail} from '../atoms/atom-auth-email';
 
 const schema = yup.object().shape({
     code: yup.number().required()
 });
 
 export const AuthConfirmForm: FunctionComponent = () => {
-    const [confirmEmail] = useRecoilState(ConfirmEmailAtom);
+    const [confirmEmail] = useRecoilState(AtomAuthEmail);
     const [disabled, setDisabled] = useState(!confirmEmail);
     const router = useRouter();
     const toastInfo = useToast('info');

@@ -7,7 +7,7 @@ import {useRecoilState} from 'recoil';
 import * as yup from 'yup';
 import {usePromise} from '../../../hooks/utils/usePromise';
 import {useToast} from '../../../hooks/utils/useToast';
-import {ConfirmEmailAtom} from '../atoms/confirm-email-atom';
+import {AtomAuthEmail} from '../atoms/atom-auth-email';
 
 const schema = yup.object().shape({
     email: yup.string().email().required('Email is required.'),
@@ -15,7 +15,7 @@ const schema = yup.object().shape({
 });
 
 export const AuthLoginForm: FunctionComponent = () => {
-    const [confirmEmail, setConfirmEmail] = useRecoilState(ConfirmEmailAtom);
+    const [confirmEmail, setConfirmEmail] = useRecoilState(AtomAuthEmail);
     const [disabled, setDisabled] = useState(false);
     const toast = useToast('warning', true);
     const router = useRouter();

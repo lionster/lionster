@@ -2,9 +2,9 @@ import {Auth} from 'aws-amplify';
 import {FunctionComponent} from 'react';
 import {
     BackType,
-    UsersLayout
-} from '../../components/contents/layouts/UsersLayout';
-import {ConfirmContent} from '../../components/contents/users/ConfirmContent';
+    AuthLayout
+} from '../../components/auth/AuthLayout/AuthLayout';
+import {AuthConfirm} from '../../components/auth/AuthConfirm/AuthConfirm';
 import {useEffectAsync} from '../../hooks/utils';
 
 const ConfirmPage: FunctionComponent = () => {
@@ -14,9 +14,9 @@ const ConfirmPage: FunctionComponent = () => {
     });
 
     return (
-        <UsersLayout backType={BackType.login}>
-            <ConfirmContent />
-        </UsersLayout>
+        <AuthLayout backType={BackType.login}>
+            <AuthConfirm />
+        </AuthLayout>
     );
 };
 

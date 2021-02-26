@@ -1,10 +1,10 @@
 import {useRecoilState} from 'recoil';
-import {ConfirmEmailAtom} from '../../auth/atoms/confirm-email-atom';
-import {AuthConfirmForm} from '../../auth/AuthConfirmForm/AuthConfirmForm';
+import {AtomAuthEmail} from '../atoms/atom-auth-email';
+import {AuthConfirmForm} from '../AuthConfirmForm/AuthConfirmForm';
 import {DivAnd, DivComponent} from '../../utils';
 
-export const ConfirmContent: DivComponent = ({className}) => {
-    const [confirmEmail] = useRecoilState(ConfirmEmailAtom);
+export const AuthConfirm: DivComponent = ({className}) => {
+    const [confirmEmail] = useRecoilState(AtomAuthEmail);
 
     return (
         <DivAnd className="flex flex-col" and={className}>

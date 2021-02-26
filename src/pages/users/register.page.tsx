@@ -1,15 +1,15 @@
 import {FunctionComponent} from 'react';
 import {
     BackType,
-    UsersLayout
-} from '../../components/contents/layouts/UsersLayout';
-import {RegisterContent} from '../../components/contents/users/RegisterContent';
+    AuthLayout
+} from '../../components/auth/AuthLayout/AuthLayout';
+import {AuthRegister} from '../../components/auth/AuthRegister/AuthRegister';
 
 const RegisterPage: FunctionComponent = () => {
     return (
-        <UsersLayout backType={BackType.login}>
-            <RegisterContent />
-        </UsersLayout>
+        <AuthLayout backType={BackType.login}>
+            <AuthRegister />
+        </AuthLayout>
     );
 };
 

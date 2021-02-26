@@ -1,10 +1,10 @@
 import {Button} from '@material-ui/core';
 import Link from 'next/link';
-import {AuthLoginForm} from '../../auth/AuthLoginForm/AuthLoginForm';
-import {AuthSocialLogins} from '../../auth/AuthSocialLogins/AuthSocialLogins';
+import {AuthLoginForm} from '../AuthLoginForm/AuthLoginForm';
+import {AuthSocialLogins} from '../AuthSocialLogins/AuthSocialLogins';
 import {DivAnd, DivComponent} from '../../utils';
 
-export const LoginContent: DivComponent = ({className}) => {
+export const AuthLogin: DivComponent = ({className}) => {
     return (
         <DivAnd className="flex flex-col" and={className}>
             <div className="text-lg font-bold mx-auto mb-3">Sign in</div>

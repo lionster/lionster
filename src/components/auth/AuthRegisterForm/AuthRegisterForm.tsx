@@ -8,7 +8,7 @@ import {useRecoilState} from 'recoil';
 import * as yup from 'yup';
 import {environment} from '../../../environment/environment';
 import {usePromise} from '../../../hooks/utils/usePromise';
-import {ConfirmEmailAtom} from '../atoms/confirm-email-atom';
+import {AtomAuthEmail} from '../atoms/atom-auth-email';
 
 const schema = yup.object().shape({
     username: yup.string().required('Name is required.'),
@@ -34,7 +34,7 @@ const INITIAL_VALUES = {
 };
 
 export const AuthRegisterForm: FunctionComponent = () => {
-    const [confirmEmail, setConfirmEmail] = useRecoilState(ConfirmEmailAtom);
+    const [confirmEmail, setConfirmEmail] = useRecoilState(AtomAuthEmail);
     const [disabled, setDisabled] = useState(false);
     const router = useRouter();
     const submit = usePromise(

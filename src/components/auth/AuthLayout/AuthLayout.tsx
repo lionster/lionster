@@ -13,7 +13,7 @@ export interface UsersLayoutProps {
     backType?: BackType;
 }
 
-export const UsersLayout: DivComponent<UsersLayoutProps> = ({
+export const AuthLayout: DivComponent<UsersLayoutProps> = ({
     className,
     children,
     backType
