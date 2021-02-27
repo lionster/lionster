@@ -2,6 +2,7 @@ import {Auth} from 'aws-amplify';
 import {FunctionComponent} from 'react';
 import {useUser} from '../../hooks/users/useUser';
 import {useEffectAsync} from '../../hooks/utils';
+import {AUTH_BUTTON_TERMS} from '../auth.types';
 import {AuthHeading} from '../AuthHeading/AuthHeading';
 
 export const AuthLogout: FunctionComponent = () => {
@@ -16,7 +17,7 @@ export const AuthLogout: FunctionComponent = () => {
 
     return (
         <>
-            <AuthHeading title="Sign out" />
+            <AuthHeading title={AUTH_BUTTON_TERMS.LOG_OUT} />
             {user.user ? signingOut : signedOut}
         </>
     );
