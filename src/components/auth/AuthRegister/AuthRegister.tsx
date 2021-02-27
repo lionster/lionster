@@ -1,16 +1,15 @@
-import {DivAnd, DivComponent} from '../../utils/DivAnd';
+import {FunctionComponent} from 'react';
+import {AuthHeading} from '../AuthHeading/AuthHeading';
 import {AuthRegisterForm} from '../AuthRegisterForm/AuthRegisterForm';
 import {AuthSocialLogins} from '../AuthSocialLogins/AuthSocialLogins';
 
-export const AuthRegister: DivComponent = ({className}) => {
+export const AuthRegister: FunctionComponent = () => {
     return (
-        <DivAnd className="flex flex-col" and={className}>
-            <div className="text-lg font-bold mx-auto mb-3">
-                Create a new account
-            </div>
+        <>
+            <AuthHeading title="Create a new account" />
             <AuthRegisterForm />
             <div className="flex mx-auto mb-6">OR</div>
             <AuthSocialLogins className="mb-6" />
-        </DivAnd>
+        </>
     );
 };

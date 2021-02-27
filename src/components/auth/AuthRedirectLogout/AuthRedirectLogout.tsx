@@ -1,5 +1,6 @@
 import {FunctionComponent} from 'react';
 import {useUser} from '../../hooks/users/useUser';
+import {AuthHeading} from '../AuthHeading/AuthHeading';
 
 export const AuthRedirectLogout: FunctionComponent = () => {
     const user = useUser();
@@ -10,6 +11,7 @@ export const AuthRedirectLogout: FunctionComponent = () => {
 
     return (
         <>
+            <AuthHeading title="Logging out" />
             {user.status === 'loading'
                 ? loading
                 : user.status === 'error'

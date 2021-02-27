@@ -1,13 +1,15 @@
 import {useRecoilState} from 'recoil';
 import {AtomAuthEmail} from '../../../atoms/atom-auth-email';
+import {DivComponent} from '../../utils/DivAnd';
 import {AuthConfirmForm} from '../AuthConfirmForm/AuthConfirmForm';
-import {DivAnd, DivComponent} from '../../utils/DivAnd';
+import {AuthHeading} from '../AuthHeading/AuthHeading';
 
 export const AuthConfirm: DivComponent = ({className}) => {
     const [confirmEmail] = useRecoilState(AtomAuthEmail);
 
     return (
-        <DivAnd className="flex flex-col" and={className}>
+        <>
+            <AuthHeading title="Confirmation Code" />
             <div className="text-lg font-bold mx-auto mb-3">
                 Check your email
             </div>
@@ -17,6 +19,6 @@ export const AuthConfirm: DivComponent = ({className}) => {
                 it below to confirm your email address.
             </div>
             <AuthConfirmForm />
-        </DivAnd>
+        </>
     );
 };

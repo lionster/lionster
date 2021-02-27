@@ -1,13 +1,12 @@
-import {DivAnd, DivComponent} from '../../utils/DivAnd';
+import {FunctionComponent} from 'react';
 import {AuthForgotForm} from '../AuthForgotForm/AuthForgotForm';
+import {AuthHeading} from '../AuthHeading/AuthHeading';
 
-export const AuthForgot: DivComponent = ({className}) => {
+export const AuthForgot: FunctionComponent = () => {
     return (
-        <DivAnd className="flex flex-col" and={className}>
-            <div className="text-lg font-bold mx-auto mb-3">
-                Password recovery
-            </div>
+        <>
+            <AuthHeading title="Password recovery" />
             <AuthForgotForm />
-        </DivAnd>
+        </>
     );
 };

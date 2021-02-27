@@ -1,22 +1,26 @@
 import {Button} from '@material-ui/core';
 import Link from 'next/link';
+import {FunctionComponent} from 'react';
+import {ROUTES} from '../../routes/routes.types';
+import {AuthHeading} from '../AuthHeading/AuthHeading';
 import {AuthLoginForm} from '../AuthLoginForm/AuthLoginForm';
 import {AuthSocialLogins} from '../AuthSocialLogins/AuthSocialLogins';
-import {DivAnd, DivComponent} from '../../utils/DivAnd';
 
-export const AuthLogin: DivComponent = ({className}) => {
+export const AuthLogin: FunctionComponent = () => {
     return (
-        <DivAnd className="flex flex-col" and={className}>
-            <div className="text-lg font-bold mx-auto mb-3">Sign in</div>
+        <>
+            <AuthHeading title="Sign in" />
             <AuthSocialLogins />
             <div className="flex mx-auto mb-3">OR</div>
             <AuthLoginForm />
-            <Link href="/users/forgot">
+            <Link href={ROUTES.FORGOT}>
                 <a className="mb-6">Forgot your password?</a>
             </Link>
-            <Link href="/users/register">
-                <Button variant="contained">Create an account</Button>
+            <Link href={ROUTES.REGISTER}>
+                <Button variant="outlined" color="primary">
+                    Create an account
+                </Button>
             </Link>
-        </DivAnd>
+        </>
     );
 };

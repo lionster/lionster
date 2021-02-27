@@ -7,17 +7,13 @@ import {
     BackType
 } from '../../components/auth/AuthLayout/AuthLayout';
 import {AuthRegister} from '../../components/auth/AuthRegister/AuthRegister';
-import {PageTitle} from '../../components/utils/PageTitle';
 
 const RegisterPage: FunctionComponent = () => {
     const [confirmEmail] = useRecoilState(AtomAuthEmail);
     return (
-        <>
-            <PageTitle title="Register" />
-            <AuthLayout backType={BackType.login}>
-                {confirmEmail ? <AuthConfirm /> : <AuthRegister />}
-            </AuthLayout>
-        </>
+        <AuthLayout backType={BackType.login}>
+            {confirmEmail ? <AuthConfirm /> : <AuthRegister />}
+        </AuthLayout>
     );
 };
 
