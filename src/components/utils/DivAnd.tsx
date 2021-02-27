@@ -6,13 +6,14 @@ import {FunctionComponent} from 'react';
 export interface DivProps {
     className?: string;
 
+    // eslint-disable-next-line @typescript-eslint/ban-types
     style?: object;
 }
 
 /**
  * Declines a functional component that has a className property.
  */
-export type DivComponent<TType extends {} = {}> = FunctionComponent<
+export type DivComponent<TType extends unknown = unknown> = FunctionComponent<
     TType & DivProps
 >;
 

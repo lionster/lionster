@@ -1,24 +1,43 @@
+import {
+    ThemeProvider,
+    unstable_createMuiStrictModeTheme as createMuiTheme
+} from '@material-ui/core/styles';
 import {AppProps} from 'next/app';
+import {SnackbarProvider} from 'notistack';
 import {FunctionComponent} from 'react';
+import {RecoilRoot} from 'recoil';
 import 'styles/app.scss';
-import {LayoutComponent, PublicLayout} from '../components/layouts';
 import '../config/config-amplify';
 
-interface LayoutProps {
-    Component: LayoutComponent;
-}
+const theme = createMuiTheme({
+    props: {
+        MuiButton: {
+            variant: 'outlined',
+            disableElevation: true
+        },
+        MuiTextField: {
+            variant: 'outlined',
+            size: 'small'
+        }
+    }
+});
 
-const App: FunctionComponent<AppProps & LayoutProps> = ({
-    Component,
-    pageProps
-}) => {
-    const Layout = Component.layoutComponent || PublicLayout;
-    const layoutProps = Component.layoutProps || {};
+const AppPage: FunctionComponent<AppProps> = ({Component, pageProps}) => {
     return (
-        <Layout {...layoutProps}>
-            <Component {...pageProps} />
-        </Layout>
+        <RecoilRoot>
+            <ThemeProvider theme={theme}>
+                <SnackbarProvider
+                    maxSnack={3}
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'center'
+                    }}
+                >
+                    <Component {...pageProps} />
+                </SnackbarProvider>
+            </ThemeProvider>
+        </RecoilRoot>
     );
 };
 
-export default App;
+export default AppPage;

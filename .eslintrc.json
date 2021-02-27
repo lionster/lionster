@@ -11,16 +11,14 @@
     ],
     "plugins": ["@typescript-eslint", "react", "react-hooks", "prettier"],
     "rules": {
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "react/prop-types": "off",
         "react/react-in-jsx-scope": "off",
         "react/jsx-first-prop-new-line": [1, "multiline"],
-        "react/jsx-max-props-per-line": [
-            1,
-            {
-                "maximum": 1
-            }
-        ],
-        "react/jsx-indent-props": [2, 2],
-        "react/jsx-closing-bracket-location": [2, "tag-aligned"]
+        "react/jsx-closing-bracket-location": [2, "tag-aligned"],
+        "react-hooks/exhaustive-deps": "off"
     },
     "globals": {
         "React": "writable"

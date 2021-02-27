@@ -4,6 +4,8 @@
 export interface Environment {
     brandName: string;
 
+    brandSlogan: string;
+
     production: boolean;
 }
 
@@ -12,5 +14,6 @@ export interface Environment {
  */
 export const environment: Environment = {
     brandName: process.env.brandName,
-    production: (process.env.production as any as boolean) !== false
+    brandSlogan: process.env.brandSlogan,
+    production: ((process.env.production as unknown) as boolean) !== false
 };

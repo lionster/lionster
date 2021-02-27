@@ -1,6 +1,6 @@
 {
     "auth": {
-        "lionster0192a0c6": {
+        "lionster": {
             "service": "Cognito",
             "providerPlugin": "awscloudformation",
             "dependsOn": [],

@@ -1,3 +1,4 @@
+import {ServerStyleSheets} from '@material-ui/styles';
 import Document, {
     DocumentContext,
     Head,
@@ -7,17 +8,37 @@ import Document, {
 } from 'next/document';
 import React from 'react';
 
-// @todo Dark mode flag might be moved to App to allow as a user setting.
-const IS_DARK: boolean = false;
-
 export default class LionsterDocument extends Document {
+    /**
+     * @see https://github.com/vercel/next.js/issues/7322#issuecomment-751290533
+     * @see https://github.com/mui-org/material-ui/blob/master/examples/nextjs/pages/_document.js
+     */
     static async getInitialProps(ctx: DocumentContext) {
-        return await Document.getInitialProps(ctx);
+        // Render app and page and get the context of the page with collected side effects.
+        const sheets = new ServerStyleSheets();
+        const originalRenderPage = ctx.renderPage;
+
+        ctx.renderPage = () =>
+            originalRenderPage({
+                enhanceApp: (App) => (props) =>
+                    sheets.collect(<App {...props} />)
+            });
+
+        const initialProps = await Document.getInitialProps(ctx);
+
+        return {
+            ...initialProps,
+            // Styles fragment is rendered after the app and page rendering finish.
+            styles: [
+                ...React.Children.toArray(initialProps.styles),
+                sheets.getStyleElement()
+            ]
+        };
     }
 
     public render() {
         return (
-            <Html className={IS_DARK ? 'dark' : ''} lang="en">
+            <Html lang="en">
                 <Head>
                     <link
                         rel="apple-touch-icon"

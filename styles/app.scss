@@ -1,60 +1,51 @@
-@import "config";
-@import "~bootstrap/scss/root";
-@import "~bootstrap/scss/reboot";
-@import "~bootstrap/scss/type";
-
-@import "social-buttons";
+@import 'config';
+@import 'social-buttons';
 
 @tailwind base;
 @tailwind components;
 @tailwind screens;
 @tailwind utilities;
 
+@layer base {
+    a:not(.MuiButtonBase-root),
+    a:not(.no-link) {
+        @apply text-blue-500 hover:text-blue-700;
+    }
+}
 
-html, body {
-  display: block;
-  position: relative;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+html,
+body {
+    display: block;
+    position: relative;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 
-  -ms-touch-action: none;
-  -webkit-touch-callout: none;
-  -ms-content-zooming: none;
+    -ms-touch-action: none;
+    -webkit-touch-callout: none;
+    -ms-content-zooming: none;
 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-overflow-scrolling: touch;
-  // CSS 3.0
-  overflow-scrolling: touch;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-overflow-scrolling: touch;
+    // CSS 3.0
+    overflow-scrolling: touch;
 
-  -webkit-text-size-adjust: none;
-  -moz-text-size-adjust: none;
-  -ms-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
 }
 
 #__next {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-html {
-  &.dark {
-    @import "bootstrap_dark";
-    @import "bootstrap";
-  }
-
-  &:not(.dark) {
-    @import "bootstrap_light";
-    @import "bootstrap";
-  }
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 ul {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 input:-webkit-autofill,
@@ -66,27 +57,42 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  -webkit-text-fill-color: $body-color;
-  -webkit-box-shadow: 0 0 0 1000px $body-bg inset;
+    //-webkit-text-fill-color: $body-color;
+    //-webkit-box-shadow: 0 0 0 1000px $body-bg inset;
+}
+
+form.was-validated .invalid-feedback {
+    // @bug - fixes a problem where the feedback was not showing. Can't tell if the style is missing or a problem with the form :invalid state.
+    display: block !important;
 }
 
 ::-webkit-scrollbar {
-  width: 14px;
-  height: 14px;
+    width: 14px;
+    height: 14px;
 }
 
 ::-webkit-scrollbar-corner {
-  background-color: transparent;
+    background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: $gray-200;
-  background-clip: padding-box;
-  border: solid transparent;
-  border-radius: 10px;
+    //background-color: $gray-200;
+    //background-clip: padding-box;
+    //border: solid transparent;
+    //border-radius: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background-clip: padding-box;
-  border: 1px solid transparent;
+    background-clip: padding-box;
+    border: 1px solid transparent;
+}
+
+// @todo might be able to fix this via the theme options
+.MuiFormControl-root {
+    margin-bottom: 0.25rem !important;
+}
+
+.MuiFormHelperText-root {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
