@@ -1,4 +1,6 @@
-import {FunctionComponent} from 'react';
+import {FunctionComponent, useEffect} from 'react';
+import {useSetRecoilState} from 'recoil';
+import {AtomAuthEmail} from '../../atoms/atom-auth-email';
 import {AuthForgot} from '../../components/auth/AuthForgot/AuthForgot';
 import {
     AuthLayout,

@@ -2,58 +2,45 @@ import {Button, TextField} from '@material-ui/core';
 import {Auth} from 'aws-amplify';
 import {useFormik} from 'formik';
 import {useRouter} from 'next/router';
-import {FunctionComponent, useState} from 'react';
-import {useRecoilState} from 'recoil';
+import {FunctionComponent} from 'react';
+import {useRecoilValue} from 'recoil';
 import * as yup from 'yup';
 import {AtomAuthEmail} from '../../../atoms/atom-auth-email';
-import {useEffectAsync} from '../../hooks/utils';
-import {usePromise} from '../../hooks/utils/usePromise';
+import {usePromiseBusy} from '../../hooks/utils/usePromiseBusy';
 import {useToast} from '../../hooks/utils/useToast';
+import {ROUTES} from '../../routes/routes.types';
 
 const schema = yup.object().shape({
     code: yup.number().required()
 });
 
 export const AuthConfirmForm: FunctionComponent = () => {
-    const [confirmEmail] = useRecoilState(AtomAuthEmail);
-    const [disabled, setDisabled] = useState(!confirmEmail);
+    const authEmail = useRecoilValue(AtomAuthEmail);
     const router = useRouter();
     const toastInfo = useToast('info');
     const toastSuccess = useToast('success');
 
-    const submit = usePromise(async ({code}) => {
-        try {
-            setDisabled(true);
-            await Auth.confirmSignUp(confirmEmail, code?.toString());
+    const [busySubmit, submit] = usePromiseBusy(
+        async ({code}) => {
+            await Auth.confirmSignUp(authEmail, code.toString());
             toastSuccess('Your email has been verified');
-            await router.push('/users/login');
-        } finally {
-            setDisabled(false);
-        }
-    });
+            await router.push(ROUTES.LOG_IN);
+        },
+        [authEmail]
+    );
 
-    const resend = usePromise(async () => {
-        try {
-            setDisabled(true);
-            await Auth.resendSignUp(confirmEmail);
-            toastInfo('Confirmation code sent.');
-        } finally {
-            setDisabled(false);
-        }
-    }, [confirmEmail]);
+    const [busyResend, resend] = usePromiseBusy(async () => {
+        await Auth.resendSignUp(authEmail);
+        toastInfo('Confirmation code sent.');
+    }, [authEmail]);
+
+    const disabled = busySubmit || busyResend;
 
     const formik = useFormik({
         validationSchema: schema,
         initialValues: {code: ''},
         onSubmit: submit
     });
-
-    useEffectAsync(async () => {
-        if (!confirmEmail) {
-            toastInfo('Please sign in using your email address.');
-            await router.push('/users/login');
-        }
-    }, [confirmEmail]);
 
     return (
         <>
@@ -73,7 +60,9 @@ export const AuthConfirmForm: FunctionComponent = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     error={Boolean(formik.submitCount && formik.errors.code)}
-                    helperText={formik.errors.code || ' '}
+                    helperText={
+                        (formik.submitCount && formik.errors.code) || ' '
+                    }
                     required
                 />
                 <Button

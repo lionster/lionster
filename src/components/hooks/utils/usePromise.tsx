@@ -2,6 +2,9 @@
 import {DependencyList, useCallback} from 'react';
 import {useToast} from './useToast';
 
+/**
+ * Creates a callback that wraps a promise in an error handler.
+ */
 export function usePromise<TType extends (...args: any[]) => Promise<any>>(
     callback: TType,
     deps: DependencyList = []

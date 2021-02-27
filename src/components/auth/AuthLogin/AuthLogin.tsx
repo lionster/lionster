@@ -1,6 +1,8 @@
 import {Button} from '@material-ui/core';
 import Link from 'next/link';
-import {FunctionComponent} from 'react';
+import {FunctionComponent, useEffect} from 'react';
+import {useResetRecoilState} from 'recoil';
+import {AtomAuthEmail} from '../../../atoms/atom-auth-email';
 import {ROUTES} from '../../routes/routes.types';
 import {AUTH_BUTTON_TERMS} from '../auth.types';
 import {AuthHeading} from '../AuthHeading/AuthHeading';
@@ -8,6 +10,8 @@ import {AuthLoginForm} from '../AuthLoginForm/AuthLoginForm';
 import {AuthSocialLogins} from '../AuthSocialLogins/AuthSocialLogins';
 
 export const AuthLogin: FunctionComponent = () => {
+    const resetAuthEmail = useResetRecoilState(AtomAuthEmail);
+    useEffect(() => resetAuthEmail(), []);
     return (
         <>
             <AuthHeading title={AUTH_BUTTON_TERMS.LOG_IN} />

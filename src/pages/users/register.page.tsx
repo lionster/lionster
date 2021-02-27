@@ -1,5 +1,5 @@
 import {FunctionComponent} from 'react';
-import {useRecoilState} from 'recoil';
+import {useRecoilValue} from 'recoil';
 import {AtomAuthEmail} from '../../atoms/atom-auth-email';
 import {AuthConfirm} from '../../components/auth/AuthConfirm/AuthConfirm';
 import {
@@ -9,10 +9,10 @@ import {
 import {AuthRegister} from '../../components/auth/AuthRegister/AuthRegister';
 
 const RegisterPage: FunctionComponent = () => {
-    const [confirmEmail] = useRecoilState(AtomAuthEmail);
+    const authEmail = useRecoilValue(AtomAuthEmail);
     return (
         <AuthLayout backType={BackType.login}>
-            {confirmEmail ? <AuthConfirm /> : <AuthRegister />}
+            {authEmail ? <AuthConfirm /> : <AuthRegister />}
         </AuthLayout>
     );
 };

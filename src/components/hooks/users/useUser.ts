@@ -1,7 +1,7 @@
 import {CognitoUser} from 'amazon-cognito-identity-js';
 import {Auth} from 'aws-amplify';
 import {useState} from 'react';
-import {useEffectAsync} from '../utils';
+import {usePromiseEffect} from '../utils/usePromiseEffect';
 
 export interface UserState {
     error?: string;
@@ -13,13 +13,13 @@ export interface UserState {
 
 export function useUser(): UserState {
     const [state, setState] = useState<UserState>({status: 'loading'});
-    useEffectAsync(async () => {
+    usePromiseEffect(async () => {
         try {
             const user = await Auth.currentAuthenticatedUser();
             setState({status: 'loaded', user});
         } catch (err) {
             setState({status: 'error', error: err.message || 'Unknown error'});
         }
-    });
+    }, []);
     return state;
 }

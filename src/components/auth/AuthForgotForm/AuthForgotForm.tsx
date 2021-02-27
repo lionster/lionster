@@ -1,10 +1,11 @@
 import {Button, TextField} from '@material-ui/core';
 import {Auth} from 'aws-amplify';
 import {useFormik} from 'formik';
-import {useRouter} from 'next/router';
-import {FunctionComponent, useState} from 'react';
+import {FunctionComponent} from 'react';
+import {useSetRecoilState} from 'recoil';
 import * as yup from 'yup';
-import {usePromise} from '../../hooks/utils/usePromise';
+import {AtomAuthEmail} from '../../../atoms/atom-auth-email';
+import {usePromiseBusy} from '../../hooks/utils/usePromiseBusy';
 import {useToast} from '../../hooks/utils/useToast';
 
 const schema = yup.object().shape({
@@ -12,18 +13,12 @@ const schema = yup.object().shape({
 });
 
 export const AuthForgotForm: FunctionComponent = () => {
-    const [disabled, setDisabled] = useState(false);
-    const toast = useToast('info', true);
-    const router = useRouter();
-    const submit = usePromise(async ({email}) => {
-        try {
-            setDisabled(true);
-            const user = await Auth.forgotPassword(email);
-            toast('We sent you a password reset email.');
-            await router.push('/users/login');
-        } finally {
-            setDisabled(false);
-        }
+    const setAuthEmail = useSetRecoilState(AtomAuthEmail);
+    const toastInfo = useToast('info', true);
+    const [disabled, submit] = usePromiseBusy(async ({email}) => {
+        await Auth.forgotPassword(email);
+        toastInfo('We sent you a password reset email.');
+        setAuthEmail(email);
     });
     const formik = useFormik({
         validationSchema: schema,
@@ -46,7 +41,7 @@ export const AuthForgotForm: FunctionComponent = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 error={Boolean(formik.submitCount && formik.errors.email)}
-                helperText={formik.errors.email || ' '}
+                helperText={(formik.submitCount && formik.errors.email) || ' '}
                 required
             />
             <Button

@@ -8,12 +8,12 @@ import {
 import {Auth} from 'aws-amplify';
 import {useFormik} from 'formik';
 import Link from 'next/link';
-import {FunctionComponent, useState} from 'react';
-import {useRecoilState} from 'recoil';
+import {FunctionComponent} from 'react';
+import {useSetRecoilState} from 'recoil';
 import * as yup from 'yup';
 import {AtomAuthEmail} from '../../../atoms/atom-auth-email';
 import {environment} from '../../../environment/environment';
-import {usePromise} from '../../hooks/utils/usePromise';
+import {usePromiseBusy} from '../../hooks/utils/usePromiseBusy';
 import {ROUTES} from '../../routes/routes.types';
 
 const schema = yup.object().shape({
@@ -24,8 +24,12 @@ const schema = yup.object().shape({
         .required('Password is required.')
         .matches(
             /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}$/,
-            'Must Contain 8 Characters, One Uppercase, One Lowercase, and One Number'
+            'Must Contain 8 Characters, One Uppercase, One Lowercase, and One Number.'
         ),
+    confirm_password: yup
+        .string()
+        .required('Confirm password is required.')
+        .oneOf([yup.ref('password')], 'Passwords must match.'),
     terms: yup.boolean().oneOf([true], 'Must accept terms and conditions.'),
     news: yup.boolean()
 });
@@ -34,26 +38,21 @@ const INITIAL_VALUES = {
     username: '',
     email: '',
     password: '',
+    confirm_password: '',
     terms: false,
     news: false
 };
 
 export const AuthRegisterForm: FunctionComponent = () => {
-    const [confirmEmail, setConfirmEmail] = useRecoilState(AtomAuthEmail);
-    const [disabled, setDisabled] = useState(false);
-    const submit = usePromise(
+    const setAuthEmail = useSetRecoilState(AtomAuthEmail);
+    const [disabled, submit] = usePromiseBusy(
         async ({username: name, email: username, password, terms, news}) => {
-            setDisabled(true);
-            try {
-                await Auth.signUp({
-                    username,
-                    password,
-                    attributes: {name, picture: ''}
-                });
-                setConfirmEmail(username);
-            } finally {
-                setDisabled(false);
-            }
+            await Auth.signUp({
+                username,
+                password,
+                attributes: {name, picture: ''}
+            });
+            setAuthEmail(username);
         }
     );
 
@@ -94,7 +93,9 @@ export const AuthRegisterForm: FunctionComponent = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 error={Boolean(formik.submitCount && formik.errors.username)}
-                helperText={formik.errors.username || ' '}
+                helperText={
+                    (formik.submitCount && formik.errors.username) || ' '
+                }
                 required
             />
 
@@ -108,7 +109,7 @@ export const AuthRegisterForm: FunctionComponent = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 error={Boolean(formik.submitCount && formik.errors.email)}
-                helperText={formik.errors.email || ' '}
+                helperText={(formik.submitCount && formik.errors.email) || ' '}
                 required
             />
 
@@ -122,7 +123,28 @@ export const AuthRegisterForm: FunctionComponent = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 error={Boolean(formik.submitCount && formik.errors.password)}
-                helperText={formik.errors.password || ' '}
+                helperText={
+                    (formik.submitCount && formik.errors.password) || ' '
+                }
+                required
+            />
+
+            <TextField
+                fullWidth
+                type="password"
+                name="confirm_password"
+                label="Confirm password"
+                disabled={disabled}
+                value={formik.values.confirm_password}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={Boolean(
+                    formik.submitCount && formik.errors.confirm_password
+                )}
+                helperText={
+                    (formik.submitCount && formik.errors.confirm_password) ||
+                    ' '
+                }
                 required
             />
 

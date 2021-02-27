@@ -2,12 +2,13 @@ import {Button, TextField} from '@material-ui/core';
 import {Auth} from 'aws-amplify';
 import {useFormik} from 'formik';
 import {useRouter} from 'next/router';
-import {FunctionComponent, useState} from 'react';
-import {useRecoilState} from 'recoil';
+import {FunctionComponent} from 'react';
+import {useSetRecoilState} from 'recoil';
 import * as yup from 'yup';
-import {usePromise} from '../../hooks/utils/usePromise';
-import {useToast} from '../../hooks/utils/useToast';
 import {AtomAuthEmail} from '../../../atoms/atom-auth-email';
+import {usePromiseBusy} from '../../hooks/utils/usePromiseBusy';
+import {useToast} from '../../hooks/utils/useToast';
+import {ROUTES} from '../../routes/routes.types';
 
 const schema = yup.object().shape({
     email: yup.string().email().required('Email is required.'),
@@ -15,25 +16,21 @@ const schema = yup.object().shape({
 });
 
 export const AuthLoginForm: FunctionComponent = () => {
-    const [confirmEmail, setConfirmEmail] = useRecoilState(AtomAuthEmail);
-    const [disabled, setDisabled] = useState(false);
-    const toast = useToast('warning', true);
+    const setAuthEmail = useSetRecoilState(AtomAuthEmail);
+    const toastInfo = useToast('info');
     const router = useRouter();
-    const submit = usePromise(async ({email: username, password}) => {
+    const [disabled, submit] = usePromiseBusy(async ({email, password}) => {
         try {
-            setDisabled(true);
-            const user = await Auth.signIn({username, password});
-            await router.push('/app/dashboard');
+            await Auth.signIn({username: email, password});
+            await router.push(ROUTES.DASHBOARD);
         } catch (err) {
             if (err.code === 'UserNotConfirmedException') {
-                toast('Please confirm your email address.');
-                setConfirmEmail(username);
-                await router.push('/users/confirm');
+                toastInfo('Please confirm your email address.');
+                setAuthEmail(email);
+                await router.push(ROUTES.REGISTER);
             } else {
                 throw err;
             }
-        } finally {
-            setDisabled(false);
         }
     });
 
@@ -58,7 +55,7 @@ export const AuthLoginForm: FunctionComponent = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 error={Boolean(formik.submitCount && formik.errors.email)}
-                helperText={formik.errors.email || ' '}
+                helperText={(formik.submitCount && formik.errors.email) || ' '}
                 required
             />
             <TextField
@@ -72,7 +69,9 @@ export const AuthLoginForm: FunctionComponent = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 error={Boolean(formik.submitCount && formik.errors.password)}
-                helperText={formik.errors.password || ' '}
+                helperText={
+                    (formik.submitCount && formik.errors.password) || ' '
+                }
                 required
             />
             <Button
