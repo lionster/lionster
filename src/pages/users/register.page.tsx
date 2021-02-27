@@ -1,15 +1,23 @@
 import {FunctionComponent} from 'react';
+import {useRecoilState} from 'recoil';
+import {AtomAuthEmail} from '../../atoms/atom-auth-email';
+import {AuthConfirm} from '../../components/auth/AuthConfirm/AuthConfirm';
 import {
-    BackType,
-    AuthLayout
+    AuthLayout,
+    BackType
 } from '../../components/auth/AuthLayout/AuthLayout';
 import {AuthRegister} from '../../components/auth/AuthRegister/AuthRegister';
+import {PageTitle} from '../../components/utils/PageTitle';
 
 const RegisterPage: FunctionComponent = () => {
+    const [confirmEmail] = useRecoilState(AtomAuthEmail);
     return (
-        <AuthLayout backType={BackType.login}>
-            <AuthRegister />
-        </AuthLayout>
+        <>
+            <PageTitle title="Register" />
+            <AuthLayout backType={BackType.login}>
+                {confirmEmail ? <AuthConfirm /> : <AuthRegister />}
+            </AuthLayout>
+        </>
     );
 };
 

@@ -1,6 +1,5 @@
-import Link from 'next/link';
-import {AuthForgotForm} from '../AuthForgotForm/AuthForgotForm';
 import {DivAnd, DivComponent} from '../../utils/DivAnd';
+import {AuthForgotForm} from '../AuthForgotForm/AuthForgotForm';
 
 export const AuthForgot: DivComponent = ({className}) => {
     return (
@@ -9,9 +8,6 @@ export const AuthForgot: DivComponent = ({className}) => {
                 Password recovery
             </div>
             <AuthForgotForm />
-            <Link href="/users/login">
-                <a>Return to sign in.</a>
-            </Link>
         </DivAnd>
     );
 };

@@ -1,6 +1,6 @@
 import {FunctionComponent} from 'react';
-import {DivAnd, DivProps} from '../../utils';
 import {environment} from '../../../environment/environment';
+import {DivAnd, DivProps} from '../../utils/DivAnd';
 
 export const PublicInfoCard: FunctionComponent<DivProps> = ({className}) => {
     return (

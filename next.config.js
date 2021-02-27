@@ -1,3 +1,4 @@
+/* eslint-disable */
 const {
     PHASE_DEVELOPMENT_SERVER,
     PHASE_PRODUCTION_BUILD,
@@ -23,6 +24,7 @@ module.exports = (phase, {defaultConfig}) => {
     };
     const env = {
         brandName: 'Lionster',
+        brandSlogan: 'Online machine learning playground',
         production: true
     };
     return phase === PHASE_DEVELOPMENT_SERVER

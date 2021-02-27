@@ -1,7 +1,6 @@
-import Link from 'next/link';
+import {DivAnd, DivComponent} from '../../utils/DivAnd';
 import {AuthRegisterForm} from '../AuthRegisterForm/AuthRegisterForm';
 import {AuthSocialLogins} from '../AuthSocialLogins/AuthSocialLogins';
-import {DivAnd, DivComponent} from '../../utils/DivAnd';
 
 export const AuthRegister: DivComponent = ({className}) => {
     return (
@@ -12,9 +11,6 @@ export const AuthRegister: DivComponent = ({className}) => {
             <AuthRegisterForm />
             <div className="flex mx-auto mb-6">OR</div>
             <AuthSocialLogins className="mb-6" />
-            <Link href="/users/login">
-                <a>Return to sign in.</a>
-            </Link>
         </DivAnd>
     );
 };

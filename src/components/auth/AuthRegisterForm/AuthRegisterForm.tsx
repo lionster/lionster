@@ -2,13 +2,12 @@ import {Button, Checkbox, FormControlLabel, TextField} from '@material-ui/core';
 import {Auth} from 'aws-amplify';
 import {useFormik} from 'formik';
 import Link from 'next/link';
-import {useRouter} from 'next/router';
 import {FunctionComponent, useState} from 'react';
 import {useRecoilState} from 'recoil';
 import * as yup from 'yup';
+import {AtomAuthEmail} from '../../../atoms/atom-auth-email';
 import {environment} from '../../../environment/environment';
 import {usePromise} from '../../hooks/utils/usePromise';
-import {AtomAuthEmail} from '../../../atoms/atom-auth-email';
 
 const schema = yup.object().shape({
     username: yup.string().required('Name is required.'),
@@ -36,16 +35,19 @@ const INITIAL_VALUES = {
 export const AuthRegisterForm: FunctionComponent = () => {
     const [confirmEmail, setConfirmEmail] = useRecoilState(AtomAuthEmail);
     const [disabled, setDisabled] = useState(false);
-    const router = useRouter();
     const submit = usePromise(
         async ({username: name, email: username, password, terms, news}) => {
-            await Auth.signUp({
-                username,
-                password,
-                attributes: {name, picture: ''}
-            });
-            setConfirmEmail(username);
-            await router.push('/users/confirm');
+            setDisabled(true);
+            try {
+                await Auth.signUp({
+                    username,
+                    password,
+                    attributes: {name, picture: ''}
+                });
+                setConfirmEmail(username);
+            } finally {
+                setDisabled(false);
+            }
         }
     );
 

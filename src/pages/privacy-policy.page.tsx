@@ -1,12 +1,16 @@
 import {FunctionComponent} from 'react';
-import {PublicPolicy} from '../components/public/PublicPolicy/PublicPolicy';
 import {PublicLayout} from '../components/public/PublicLayout/PublicLayout';
+import {PublicPolicy} from '../components/public/PublicPolicy/PublicPolicy';
+import {PageTitle} from '../components/utils/PageTitle';
 
 const PrivacyPolicyPage: FunctionComponent = (props) => {
     return (
-        <PublicLayout>
-            <PublicPolicy />
-        </PublicLayout>
+        <>
+            <PageTitle title="Privacy Policy" />
+            <PublicLayout>
+                <PublicPolicy />
+            </PublicLayout>
+        </>
     );
 };
 

@@ -1,11 +1,11 @@
 import {Button, TextField} from '@material-ui/core';
+import {Auth} from 'aws-amplify';
 import {useFormik} from 'formik';
+import {useRouter} from 'next/router';
 import {FunctionComponent, useState} from 'react';
 import * as yup from 'yup';
-import {useRouter} from 'next/router';
-import {useToast} from '../../hooks/utils/useToast';
 import {usePromise} from '../../hooks/utils/usePromise';
-import {Auth} from 'aws-amplify';
+import {useToast} from '../../hooks/utils/useToast';
 
 const schema = yup.object().shape({
     email: yup.string().email().required()
@@ -13,12 +13,13 @@ const schema = yup.object().shape({
 
 export const AuthForgotForm: FunctionComponent = () => {
     const [disabled, setDisabled] = useState(false);
-    const toast = useToast('warning', true);
+    const toast = useToast('info', true);
     const router = useRouter();
-    const submit = usePromise(async ({email: username}) => {
+    const submit = usePromise(async ({email}) => {
         try {
             setDisabled(true);
-            // const user = await Auth.signIn({username, password});
+            const user = await Auth.forgotPassword(email);
+            toast('We sent you a password reset email.');
             await router.push('/users/login');
         } finally {
             setDisabled(false);

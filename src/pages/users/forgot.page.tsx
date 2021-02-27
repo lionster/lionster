@@ -1,15 +1,19 @@
 import {FunctionComponent} from 'react';
-import {
-    BackType,
-    AuthLayout
-} from '../../components/auth/AuthLayout/AuthLayout';
 import {AuthForgot} from '../../components/auth/AuthForgot/AuthForgot';
+import {
+    AuthLayout,
+    BackType
+} from '../../components/auth/AuthLayout/AuthLayout';
+import {PageTitle} from '../../components/utils/PageTitle';
 
 const ForgotPage: FunctionComponent = () => {
     return (
-        <AuthLayout backType={BackType.login}>
-            <AuthForgot />
-        </AuthLayout>
+        <>
+            <PageTitle title="Password recovery" />
+            <AuthLayout backType={BackType.login}>
+                <AuthForgot />
+            </AuthLayout>
+        </>
     );
 };
 
