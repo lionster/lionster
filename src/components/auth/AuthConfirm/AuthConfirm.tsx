@@ -10,9 +10,6 @@ export const AuthConfirm: DivComponent = ({className}) => {
     return (
         <>
             <AuthHeading title="Confirmation Code" />
-            <div className="text-lg font-bold mx-auto mb-3">
-                Check your email
-            </div>
             <div className="mb-6">
                 We&apos;ve sent you a confirmation code to{' '}
                 <span className="font-bold">{confirmEmail}</span>. Please enter

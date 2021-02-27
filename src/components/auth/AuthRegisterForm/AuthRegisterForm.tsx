@@ -1,4 +1,10 @@
-import {Button, Checkbox, FormControlLabel, TextField} from '@material-ui/core';
+import {
+    Button,
+    Checkbox,
+    FormControlLabel,
+    FormHelperText,
+    TextField
+} from '@material-ui/core';
 import {Auth} from 'aws-amplify';
 import {useFormik} from 'formik';
 import Link from 'next/link';
@@ -8,6 +14,7 @@ import * as yup from 'yup';
 import {AtomAuthEmail} from '../../../atoms/atom-auth-email';
 import {environment} from '../../../environment/environment';
 import {usePromise} from '../../hooks/utils/usePromise';
+import {ROUTES} from '../../routes/routes.types';
 
 const schema = yup.object().shape({
     username: yup.string().required('Name is required.'),
@@ -19,8 +26,7 @@ const schema = yup.object().shape({
             /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}$/,
             'Must Contain 8 Characters, One Uppercase, One Lowercase, and One Number'
         ),
-    // @todo there is a way to make it required and also true
-    terms: yup.boolean().required('Must accept terms and conditions.'),
+    terms: yup.boolean().oneOf([true], 'Must accept terms and conditions.'),
     news: yup.boolean()
 });
 
@@ -60,8 +66,8 @@ export const AuthRegisterForm: FunctionComponent = () => {
     const termsLabel = (
         <span>
             I agree to our{' '}
-            <Link href="/privacy-policy/">
-                <a>Terms and Privacy Policy</a>
+            <Link href={ROUTES.PRIVACY_POLICY}>
+                <a target="_blank">Terms and Privacy Policy</a>
             </Link>
             .
         </span>
@@ -132,6 +138,12 @@ export const AuthRegisterForm: FunctionComponent = () => {
                 }
                 label={termsLabel}
             />
+
+            {Boolean(formik.submitCount && formik.errors.terms) && (
+                <FormHelperText error={true}>
+                    {formik.errors.terms}
+                </FormHelperText>
+            )}
 
             <FormControlLabel
                 control={
